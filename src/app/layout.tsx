@@ -14,10 +14,36 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "19Homes | The Best Solution For Everything Home and Housing",
-  description: "Your Final Stop For Everything Home and Housing",
+  title: "19Homes | Your Modern Real Estate Solution",
+  description:
+    "Discover luxury homes in Nigeria with 19Homes. Buy, rent, or design your dream property. Trusted real estate experts",
+  keywords:
+    "Lagos real estate, buy house in Nigeria, rent apartment Lagos, modern homes Nigeria, 19Homes properties",
   icons: {
     icon: "/19Homes-icon.png",
+  },
+  metadataBase: new URL(process.env.NEXT_SITE_URL || "http://localhost:3000"),
+  openGraph: {
+    title: "19Homes | Modern Real Estate Solutions",
+    description: "Find your dream home with 19Homes in Nigeria.",
+    url: process.env.NEXT_SITE_URL || "http://localhost:3000",
+    siteName: "19Homes",
+    locale: "en_NG",
+    images: [
+      {
+        url: "/19Homes-icon.png",
+        width: 1200,
+        height: 630,
+        alt: "19Homes - Luxury Real Estate",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "19Homes | Modern Real Estate Solutions",
+    description: "Find your dream home with 19Homes in Nigeria.",
+    images: ["/19Homes-icon.png"],
   },
 };
 
