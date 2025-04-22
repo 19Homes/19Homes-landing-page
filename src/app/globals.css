@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+@theme {
+  --font-poppins: 'Poppins', serif;
+  --font-montserrat: 'Montserrat', serif;
+}
