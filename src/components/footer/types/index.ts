@@ -3,12 +3,22 @@ export type FooterBlockBase = {
   items: string[];
 };
 
-export type FooterCategoriesTypes = FooterBlockBase & {
+type FooterCategoryItem = {
+  name: string;
   path: string;
+};
+
+type FooterContactItem = {
+  name: string;
+  icon: string;
+};
+
+export type FooterCategoriesTypes = FooterBlockBase & {
+  items: FooterCategoryItem[];
 };
 
 export type FooterServicesTypes = FooterBlockBase;
 
 export type FooterContactTypes = FooterBlockBase & {
-  icon: string;
+  items: FooterContactItem[];
 };
