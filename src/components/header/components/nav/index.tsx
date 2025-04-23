@@ -4,9 +4,10 @@ import Link from "next/link";
 import { navigationLinks } from "../../constants";
 import { useState } from "react";
 import { cn } from "@/utils/classnames";
+import UseActiveLinkIndex from "../../hooks/useActiveLink";
 
 export default function Navigation() {
-  const [isActive, setActiveState] = useState<number>(0);
+  const [isActive, setActiveState] = useState<number>(UseActiveLinkIndex());
   const handleLinkClick = (index: number) => {
     setActiveState(index);
   };
