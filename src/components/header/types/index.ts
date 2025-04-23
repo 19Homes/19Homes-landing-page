@@ -6,3 +6,8 @@ export type navigationLink = {
   hasChild: boolean;
   child?: ReactElement;
 };
+
+export type headerButtonTypes = {
+  classnames: string;
+  text: string;
+};
