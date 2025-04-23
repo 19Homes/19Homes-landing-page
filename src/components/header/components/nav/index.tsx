@@ -12,7 +12,7 @@ export default function Navigation() {
     setActiveState(index);
   };
   return (
-    <nav className="flex gap-14">
+    <nav className="flex gap-14 h-fit">
       {navigationLinks.map((link, index) => (
         <Link
           key={index}
