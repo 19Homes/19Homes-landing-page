@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${montserrat.variable} antialiased`}
+        className={`${poppins.variable} ${montserrat.variable} antialiased flex flex-col gap-[100px] overscroll-none`}
       >
         <Header />
         {children}
