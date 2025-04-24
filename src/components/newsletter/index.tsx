@@ -8,7 +8,7 @@ export default function Newsletter() {
           subscribe to our newsletter
         </h3>
         <p className="font-montserrat font-medium text-3xl text-black-75 max-w-[971px] text-center">
-          Joins thousands of our customers to receive updates from us regarding
+          Join thousands of our customers to receive updates from us regarding
           offers and other goodies we have in stock for you.
         </p>
       </div>
