@@ -1,0 +1,20 @@
+.footer {
+    animation: scaleBackground 1s ease-out both;
+    -webkit-animation: scaleBackground 1s ease-out both;
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 40%;
+}
+
+@keyframes scaleBackground {
+    from {
+        background-size: 150% auto;
+        background-position: center;
+    }
+
+    to {
+        background-size: 100% auto;
+        background-position: center;
+    }
+
+}
