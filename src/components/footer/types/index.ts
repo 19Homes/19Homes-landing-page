@@ -9,16 +9,18 @@ type FooterCategoryItem = {
 };
 
 type FooterContactItem = {
-  name: string;
+  detail: string;
   icon: string;
 };
 
-export type FooterCategoriesTypes = FooterBlockBase & {
+export type FooterCategoriesTypes = {
+  blockTitle: string;
   items: FooterCategoryItem[];
 };
 
 export type FooterServicesTypes = FooterBlockBase;
 
-export type FooterContactTypes = FooterBlockBase & {
+export type FooterContactTypes = {
+  blockTitle: string;
   items: FooterContactItem[];
 };
