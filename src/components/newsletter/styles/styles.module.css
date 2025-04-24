@@ -1,0 +1,20 @@
+@media (prefers-reduced-motion: no-preference) {
+    .newsletter {
+        animation: slideBackgroundDown 2s ease both;
+        -webkit-animation: slideBackgroundDown 2s ease both;
+        animation-timeline: view();
+        animation-range-start: 20%;
+        animation-range-end: 90%;
+    }
+
+    @keyframes slideBackgroundDown {
+        from {
+            background-position: center top;
+        }
+
+        to {
+            background-position: center bottom;
+        }
+
+    }
+}
