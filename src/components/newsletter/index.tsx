@@ -1,8 +1,11 @@
 import Image from "next/image";
+import styles from "./styles/styles.module.css";
 
 export default function Newsletter() {
   return (
-    <section className="flex flex-col gap-20 py-8 px-14 bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.4)),url('/newsletter/newsletter.jpg')] bg-cover">
+    <section
+      className={`flex flex-col gap-20 py-8 px-14 bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.4)),url('/newsletter/newsletter.jpg')] bg-cover ${styles.newsletter}`}
+    >
       <div className="flex flex-col items-center gap-[30px]">
         <h3 className="text-2xl text-gold-100 font-poppins font-bold uppercase">
           subscribe to our newsletter
