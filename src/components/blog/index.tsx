@@ -1,0 +1,19 @@
+export default function Blog() {
+  return (
+    <section className="flex flex-col px-14 gap-10 items-center">
+      <section className="w-full flex-col items-center">
+        <div className="w-full flex flex-col gap-2.5 mb-20 items-center">
+          <h3 className="text-2xl text-gold-100 font-bold font-poppins capitalize">
+            our blog
+          </h3>
+          <p className="font-medium text-black-100 font-montserrat text-3xl capitalize">
+            see out latest articles
+          </p>
+        </div>
+      </section>
+      <button className="capitalize py-4 px-6 bg-gold-100 text-white rounded-sm cursor-pointer hover:bg-gold-75 font-medium font-montserrat text-sm duration-200">
+        view all
+      </button>
+    </section>
+  );
+}
