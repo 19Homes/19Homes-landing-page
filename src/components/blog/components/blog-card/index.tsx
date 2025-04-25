@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export default function BlogCard({
   source,
   title,
   text,
 }: {
-  source: string;
+  source: StaticImageData;
   title: string;
   text: string;
 }) {
@@ -17,6 +17,7 @@ export default function BlogCard({
         width={452}
         height={309}
         className="object-cover"
+        placeholder="blur"
       />
       <div className="flex flex-col gap-8 w-full">
         <h3 className="font-poppins font-bold text-2xl text-black-100 capitalize">

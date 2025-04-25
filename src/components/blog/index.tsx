@@ -13,13 +13,13 @@ export default function Blog() {
             see our latest articles
           </p>
         </div>
-        <section className="w-full flex gap-[22px] gap-y-10 flex-wrap justify-center">
+        <section className="w-full flex gap-6 gap-y-10 flex-wrap justify-center">
           {blogPosts.map((post, index) => (
             <BlogCard
               key={index}
               title={post.title}
               source={post.image}
-              text={post.descriptipn}
+              text={post.description}
             />
           ))}
         </section>

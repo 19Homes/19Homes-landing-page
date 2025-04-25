@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export type BlogPost = {
   title: string;
-  descriptipn: string;
-  image: string;
+  description: string;
+  image: StaticImageData;
 };
