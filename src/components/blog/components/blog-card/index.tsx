@@ -14,7 +14,7 @@ export default function BlogCard({
       <Image
         src={source}
         alt={title}
-        fill
+        width={452}
         height={309}
         className="object-cover"
       />
@@ -25,8 +25,8 @@ export default function BlogCard({
         <p className="font-montserrat font-medium text-black-100 text-xl">
           {text}
         </p>
-        <div className="w-full flex justify-between">
-          <section className="flex gap-2">
+        <div className="w-full flex justify-between items-center">
+          <section className="flex gap-2 items-center">
             <Image
               src="/blog-section/19HomesIcon.svg"
               alt="19 Homes Image"
