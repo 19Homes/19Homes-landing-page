@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Newsletter from "@/components/newsletter";
 import Blog from "@/components/blog";
+import Testimonials from "@/components/testimonials";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -63,6 +64,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Testimonials />
         <Blog />
         <Newsletter />
         <Footer />
