@@ -6,8 +6,8 @@ export default function Blog() {
           <h3 className="text-2xl text-gold-100 font-bold font-poppins capitalize">
             our blog
           </h3>
-          <p className="font-medium text-black-100 font-montserrat text-3xl capitalize">
-            see out latest articles
+          <p className="font-bold text-black-100 font-montserrat text-3xl capitalize">
+            see our latest articles
           </p>
         </div>
       </section>
