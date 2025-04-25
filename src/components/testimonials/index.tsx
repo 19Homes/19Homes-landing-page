@@ -3,7 +3,7 @@ import TestimonialCardBlock from "./components/testimonial-card";
 
 export default function Testimonials() {
   return (
-    <section className="px-14 pb-[44px] flex">
+    <section className="w-full max-w-[1440px] mx-auto px-14 pb-[44px] flex justify-center">
       <div className="flex flex-col gap-20 items-center w-full ml-8">
         <h3 className="font-poppins font-bold text-3xl text-black-100">
           What <span className="text-gold-100">Our Clients</span> Say
