@@ -1,3 +1,6 @@
+import { blogPosts } from "./constants";
+import BlogCard from "./components/blog-card";
+
 export default function Blog() {
   return (
     <section className="flex flex-col px-14 gap-10 items-center">
@@ -10,6 +13,16 @@ export default function Blog() {
             see our latest articles
           </p>
         </div>
+        <section className="w-full flex gap-[22px] gap-y-10 flex-wrap justify-center">
+          {blogPosts.map((post, index) => (
+            <BlogCard
+              key={index}
+              title={post.title}
+              source={post.image}
+              text={post.descriptipn}
+            />
+          ))}
+        </section>
       </section>
       <button className="capitalize py-4 px-6 bg-gold-100 text-white rounded-sm cursor-pointer hover:shadow-[0_0_30px_#D49100CC,0_0_30px_#D49100CC,0_0_30px_#D49100CC] font-medium font-montserrat text-sm duration-200">
         view all
