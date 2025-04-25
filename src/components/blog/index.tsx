@@ -11,7 +11,7 @@ export default function Blog() {
           </p>
         </div>
       </section>
-      <button className="capitalize py-4 px-6 bg-gold-100 text-white rounded-sm cursor-pointer hover:bg-gold-75 font-medium font-montserrat text-sm duration-200">
+      <button className="capitalize py-4 px-6 bg-gold-100 text-white rounded-sm cursor-pointer hover:shadow-[0_0_30px_#D49100CC,0_0_30px_#D49100CC,0_0_30px_#D49100CC] font-medium font-montserrat text-sm duration-200">
         view all
       </button>
     </section>
