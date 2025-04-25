@@ -1,18 +1,12 @@
 import { blogPosts } from "./constants";
 import BlogCard from "./components/blog-card";
+import SectionCaption from "../sectionCaption";
 
 export default function Blog() {
   return (
     <section className="flex flex-col px-14 gap-10 items-center">
       <section className="w-full flex-col items-center">
-        <div className="w-full flex flex-col gap-2.5 mb-20 items-center">
-          <h3 className="text-2xl text-gold-100 font-bold font-poppins capitalize">
-            our blog
-          </h3>
-          <p className="font-bold text-black-100 font-montserrat text-3xl capitalize">
-            see our latest articles
-          </p>
-        </div>
+        <SectionCaption headText="Our Blog" subText="See our latest articles" />
         <section className="w-full flex gap-6 gap-y-10 flex-wrap justify-center">
           {blogPosts.map((post, index) => (
             <BlogCard
