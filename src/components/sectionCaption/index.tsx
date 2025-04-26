@@ -6,7 +6,7 @@ export default function SectionCaption({
   subText: string;
 }) {
   return (
-    <div className="w-full flex flex-col gap-2.5 mb-20 items-center">
+    <div className="w-full flex flex-col gap-2.5 mb-20 items-center text-center">
       <h3 className="text-2xl text-gold-100 font-bold font-poppins capitalize">
         {headText}
       </h3>
