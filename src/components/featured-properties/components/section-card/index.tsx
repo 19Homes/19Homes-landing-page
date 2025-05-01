@@ -16,6 +16,7 @@ export default function SectionCard({
           alt={name}
           fill
           className="object-cover rounded-t-4xl"
+          placeholder="blur"
         />
       </div>
       <div className="w-full h-[241px] p-5 flex flex-col items-center">
