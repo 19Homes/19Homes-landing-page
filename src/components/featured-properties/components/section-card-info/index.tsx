@@ -9,8 +9,8 @@ export default function SectionCardInfo({
 }) {
   return (
     <div className="w-full flex flex-col gap-6">
-      <div className="flex justify-baseline w-full">
-        <h4 className="text-xl font-semibold font-poppins text-black-100">
+      <div className="flex justify-between items-start gap-[63px] w-full">
+        <h4 className="text-xl font-semibold font-poppins text-black-100 capitalize">
           {name}
         </h4>
         <h6 className="text-sm text-gold-100 font-poppins font-semibold">
