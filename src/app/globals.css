@@ -12,4 +12,5 @@
   --color-black-50: rgba(20, 20, 20, 0.5);
   --color-black-25: rgba(20, 20, 20, 0.25);
   --color-white: #FEFEFE;
+  --shadow-card: 0px 4px 4px rgba(20, 20, 20, 0.25);
 }
