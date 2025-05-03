@@ -9,6 +9,7 @@ import Testimonials from "@/components/testimonials";
 import Services from "@/components/services";
 import Features from "@/components/features";
 import FeaturedProperties from "@/components/featured-properties";
+import Hero from "@/components/hero";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -67,6 +68,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Hero />
         <FeaturedProperties />
         <Features />
         <Services />
