@@ -1,3 +1,14 @@
+import Hero from "@/components/hero";
+import FeaturedProperties from "@/components/featured-properties";
+import Features from "@/components/features";
+import Services from "@/components/services";
 export default function Home() {
-  return <h1 className="text-5xl text-gray-800 font-montserrat font-semibold"></h1>;
+  return (
+    <>
+      <Hero />
+      <FeaturedProperties />
+      <Features />
+      <Services />
+    </>
+  );
 }
