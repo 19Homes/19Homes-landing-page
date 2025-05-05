@@ -60,14 +60,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${montserrat.variable} antialiased flex flex-col gap-[100px] overscroll-none`}
+        className={`${poppins.variable} ${montserrat.variable} antialiased flex flex-col overscroll-none`}
       >
         <Header />
         {children}
-        <Testimonials />
-        <Blog />
-        <Newsletter />
-        <Footer />
+        <section className="flex flex-col gap-[100px]">
+          <Testimonials />
+          <Blog />
+          <Newsletter />
+          <Footer />
+        </section>
       </body>
     </html>
   );
