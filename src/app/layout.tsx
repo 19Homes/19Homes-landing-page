@@ -64,7 +64,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <section className="flex flex-col gap-[100px]">
+        <section className="flex flex-col gap-[100px] mt-[100px]">
           <Testimonials />
           <Blog />
           <Newsletter />
