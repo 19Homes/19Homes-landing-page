@@ -8,7 +8,7 @@ export const footerCategories: FooterCategoriesTypes = {
     { name: "home", path: "/" },
     { name: "about us", path: "/about" },
     { name: "career", path: "/career" },
-    { name: "design", path: "/design" },
+    { name: "designs", path: "/designs" },
     { name: "contact", path: "/contact" },
   ],
 };
