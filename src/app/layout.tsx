@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "en_NG",
     images: [
       {
-        url: "https://19homes.vercel.app/19Homes-icon.png",
+        url: "https://19homes.vercel.app/display-image.png",
         width: 1200,
         height: 630,
         alt: "19Homes - Luxury Real Estate",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "19Homes | Modern Real Estate Solutions",
     description: "Find your dream home with 19Homes in Nigeria.",
-    images: ["https://19homes.vercel.app/19Homes-icon.png"],
+    images: ["https://19homes.vercel.app/display-image.png"],
   },
 };
 
