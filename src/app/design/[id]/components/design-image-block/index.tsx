@@ -1,15 +1,24 @@
 import Image from "next/image";
 import UseGetCurrentDesign from "@/hooks/useGetCurrentDesign";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/utils/classnames";
 export default function DesignImageBlock() {
   const currentDesign = UseGetCurrentDesign();
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    currentDesign.images.imageOne,
-    currentDesign.images.imageTwo,
-    currentDesign.images.imageThree,
-  ];
+  const images = useMemo(() => {
+    return [
+      currentDesign.images.imageOne,
+      currentDesign.images.imageTwo,
+      currentDesign.images.imageThree,
+    ];
+  }, [currentDesign]);
+  useEffect(() => {
+    const imageChangeInterval = setInterval(() => {
+      setCurrentImage((prev) => (images[prev + 1] ? prev + 1 : 0));
+    }, 5000);
+
+    return () => clearInterval(imageChangeInterval);
+  }, [images]);
   return (
     <section className="mt-20 flex w-full max-w-[1512px] flex-col items-center gap-12 px-14">
       <div className="relative h-[747px] w-full">
