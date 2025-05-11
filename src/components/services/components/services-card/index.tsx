@@ -1,11 +1,12 @@
+"use client";
 import { CardBase } from "@/types";
-import ServicesButton from "../services-button";
 import Image from "next/image";
+import Button from "@/components/button";
 
 export default function ServicesCard({ title, description, image }: CardBase) {
   return (
-    <article className="flex flex-col gap-2.5 w-[450px] shrink-0">
-      <div className="w-full h-[289px] relative">
+    <article className="flex w-[450px] shrink-0 flex-col gap-2.5">
+      <div className="relative h-[289px] w-full">
         <Image
           src={image}
           alt={title}
@@ -14,16 +15,16 @@ export default function ServicesCard({ title, description, image }: CardBase) {
           className="object-cover"
         />
       </div>
-      <div className="flex flex-col gap-6 items-center w-full">
-        <div className="w-full flex flex-col gap-4 items-center">
-          <h2 className="text-3xl text-black-100 font-poppins font-bold capitalize">
+      <div className="flex w-full flex-col items-center gap-6">
+        <div className="flex w-full flex-col items-center gap-4">
+          <h2 className="text-black-100 font-poppins text-3xl font-bold capitalize">
             {title}
           </h2>
-          <p className="text-black-100 text-xl font-montserrat font-normal">
+          <p className="text-black-100 font-montserrat text-xl font-normal">
             {description}
           </p>
         </div>
-        <ServicesButton />
+        <Button text="learn more" onclick={() => {}} />
       </div>
     </article>
   );
