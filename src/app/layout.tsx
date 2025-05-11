@@ -30,7 +30,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_SITE_URL || "http://localhost:3000"),
   openGraph: {
     title: "19Homes | Modern Real Estate Solutions",
-    description: "Find your dream home with 19Homes in Nigeria.",
+    description:
+      "Find your dream home and create unforgettable architectural experiences in Nigeria with 19Homes .",
     url: process.env.NEXT_SITE_URL || "http://localhost:3000",
     siteName: "19Homes",
     locale: "en_NG",
@@ -60,11 +61,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${montserrat.variable} antialiased flex flex-col overscroll-none`}
+        className={`${poppins.variable} ${montserrat.variable} flex flex-col overscroll-none antialiased`}
       >
         <Header />
         {children}
-        <section className="flex flex-col gap-[100px] mt-[100px]">
+        <section className="mt-[100px] flex flex-col gap-[100px]">
           <Testimonials />
           <Blog />
           <Newsletter />
