@@ -11,7 +11,7 @@ export default function DesignCard({
 }) {
   const router = useRouter();
   return (
-    <div className="border-gold-25 h-[595px] w-[378px] rounded-4xl border-2 px-3.5 pt-3.5 pb-[1px]">
+    <div className="border-gold-25 h-[595px] w-[378px] rounded-4xl border-2 px-3.5 pt-3.5 pb-[1px] shrink-0">
       <div className="bg-gold-50 shadow-card relative h-full w-full rounded-4xl">
         <Image
           src={image}
