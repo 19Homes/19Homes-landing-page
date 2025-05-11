@@ -11,14 +11,20 @@ export default function DesignImageBlock() {
     currentDesign.images.imageThree,
   ];
   return (
-    <section className="mt-20 flex w-full flex-col items-center gap-12 px-14">
+    <section className="mt-20 flex w-full max-w-[1512px] flex-col items-center gap-12 px-14">
       <div className="relative h-[747px] w-full">
-        <Image
-          src={images[currentImage]}
-          alt="design"
-          fill
-          className="object-cover"
-        />
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            src={image}
+            alt="design"
+            fill
+            className={cn(
+              "object-cover duration-1500",
+              index === currentImage ? "opacity-100" : "opacity-0",
+            )}
+          />
+        ))}
       </div>
       <div className="flex justify-center gap-6">
         {images.map((image, index) => (
