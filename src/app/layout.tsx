@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import Newsletter from "@/components/newsletter";
 import Blog from "@/components/blog";
 import Testimonials from "@/components/testimonials";
+import ActiveLinkProvider from "@/providers/activeLinkProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -63,14 +64,16 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} flex flex-col overscroll-none antialiased`}
       >
-        <Header />
-        {children}
-        <section className="mt-[100px] flex flex-col gap-[100px]">
-          <Testimonials />
-          <Blog />
-          <Newsletter />
-          <Footer />
-        </section>
+        <ActiveLinkProvider>
+          <Header />
+          {children}
+          <section className="mt-[100px] flex flex-col gap-[100px]">
+            <Testimonials />
+            <Blog />
+            <Newsletter />
+            <Footer />
+          </section>
+        </ActiveLinkProvider>
       </body>
     </html>
   );
