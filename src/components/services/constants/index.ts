@@ -1,7 +1,7 @@
 import { CardBase } from "@/types";
 import sales from "../../../../public/services/house-sales.png";
 import building from "../../../../public/services/building.png";
-import architecturalDesign from "../../../../public/services/architectural-design.png";
+import architecturalDesign from "../../../../public/designs/design.jpg";
 import interiorDesign from "../../../../public/services/interior.jpg";
 
 export const ServicesCardsData: CardBase[] = [
