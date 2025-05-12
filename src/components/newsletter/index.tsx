@@ -16,7 +16,7 @@ export default function Newsletter() {
         </p>
       </div>
       <form className="flex flex-col justify-between items-center h-[203px]">
-        <div className="w-[858px] h-[98px] rounded-4xl bg-[#fffdfd] shadow-[0_4px_4px_rgba(0,0,0,0.25)] py-[33px] px-[27px] flex gap-6 items-center">
+        <div className="w-[858px] h-[98px] rounded-4xl bg-[#fffdfd] shadow-[0_4px_4px_rgba(0,0,0,0.25)] py-[33px] px-[27px] flex gap-6 items-center has-[input:focus]:outline-4 outline-black-100 "> 
           <Image
             src="/newsletter/e-mail.svg"
             alt="email"
