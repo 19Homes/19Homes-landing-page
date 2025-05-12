@@ -4,7 +4,7 @@ import HeaderButton from "./components/button";
 
 export default function Header() {
   return (
-    <header className="flex justify-between mt-10 px-14 items-center">
+    <header className="flex justify-between mt-10 px-14 items-start">
       <Logo />
       <Navigation />
       <div className="flex gap-4">
