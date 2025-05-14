@@ -14,6 +14,17 @@ import image12 from "../../../../public/designs/design-three2.jpg";
 import image13 from "../../../../public/designs/design-five.jpg";
 import image14 from "../../../../public/designs/design-four1.jpg";
 
-export const centralImages = [image10, image11, image12, image13, image14];
+export const centralImages = [
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image,
+  image3,
+  image6,
+  image7,
+  image9,
+];
 export const column1Images = [image, image1, image2, image3, image4];
 export const column3Images = [image5, image6, image7, image8, image9];
