@@ -4,7 +4,7 @@ import CentralImage from "../central-image";
 
 export default function ImageGrid() {
   return (
-    <div className="grid h-[500px] w-[600px] grid-cols-5 gap-4 overflow-y-hidden rounded-xl">
+    <div className="grid h-[500px] w-[600px] grid-cols-5 gap-4 overflow-y-hidden rounded-xl shrink-0">
       <div className="animate-card-slide flex h-full flex-col gap-4">
         <CardColumn columnImages={column1Images} />
       </div>
