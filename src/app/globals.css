@@ -1,16 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  --font-poppins: 'Poppins', serif;
-  --font-montserrat: 'Montserrat', serif;
-  --color-gold-100: rgba(218, 145, 0, 1);
-  --color-gold-75: rgba(218, 145, 0, 0.75);
-  --color-gold-50: rgba(218, 145, 0, 0.5);
-  --color-gold-25: rgba(218, 145, 0, 0.25);
-  --color-black-100: rgba(20, 20, 20, 1);
-  --color-black-75: rgba(20, 20, 20, 0.75);
-  --color-black-50: rgba(20, 20, 20, 0.5);
-  --color-black-25: rgba(20, 20, 20, 0.25);
-  --color-white: #FEFEFE;
-  --shadow-card: 0px 4px 4px rgba(20, 20, 20, 0.25);
+    --font-poppins: 'Poppins', serif;
+    --font-montserrat: 'Montserrat', serif;
+    --color-gold-100: rgba(218, 145, 0, 1);
+    --color-gold-75: rgba(218, 145, 0, 0.75);
+    --color-gold-50: rgba(218, 145, 0, 0.5);
+    --color-gold-25: rgba(218, 145, 0, 0.25);
+    --color-black-100: rgba(20, 20, 20, 1);
+    --color-black-75: rgba(20, 20, 20, 0.75);
+    --color-black-50: rgba(20, 20, 20, 0.5);
+    --color-black-25: rgba(20, 20, 20, 0.25);
+    --color-white: #FEFEFE;
+    --shadow-card: 0px 4px 4px rgba(20, 20, 20, 0.25);
+    --animate-card-slide: card-slide 10s linear infinite both;
+    --animate-card-slide-down: card-slide-down 10s linear infinite both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes card-slide {
+        to {
+            transform: translateY(-50.5%);
+            -webkit-transform: translateY(-50.5%);
+            -moz-transform: translateY(-50.5%);
+            -ms-transform: translateY(-50.5%);
+            -o-transform: translateY(-50.5%);
+}
+    }
+    @keyframes card-slide-down {
+        to {
+            transform: translateY(50.5%);
+            -webkit-transform: translateY(50.5%);
+            -moz-transform: translateY(50.5%);
+            -ms-transform: translateY(50.5%);
+            -o-transform: translateY(50.5%);
+}
+    }
 }
