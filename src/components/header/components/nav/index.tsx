@@ -12,7 +12,7 @@ export default function Navigation() {
     setActiveLinkIndex(index);
   };
   return (
-    <nav className="flex h-fit gap-12">
+    <nav className="hidden lg:flex h-fit gap-12">
       {navigationLinks.map((link, index) => (
         <Link
           key={index}
