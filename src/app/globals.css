@@ -15,6 +15,7 @@
     --shadow-card: 0px 4px 4px rgba(20, 20, 20, 0.25);
     --animate-card-slide: card-slide 10s linear infinite both;
     --animate-card-slide-down: card-slide-down 10s linear infinite both;
+    --animate-menu-appear: menu-appear 300ms ease both;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -25,8 +26,9 @@
             -moz-transform: translateY(-50.5%);
             -ms-transform: translateY(-50.5%);
             -o-transform: translateY(-50.5%);
-}
+        }
     }
+
     @keyframes card-slide-down {
         to {
             transform: translateY(50.5%);
@@ -34,6 +36,19 @@
             -moz-transform: translateY(50.5%);
             -ms-transform: translateY(50.5%);
             -o-transform: translateY(50.5%);
-}
+        }
+    }
+
+    @keyframes menu-appear {
+        from {
+            transform: translateY(50px);
+            -webkit-transform: translateY(50px);
+            -moz-transform: translateY(50px);
+            -ms-transform: translateY(50px);
+            -o-transform: translateY(50px);
+            opacity: 0;
+            scale: 0.5;
+        }
+
     }
 }
