@@ -5,18 +5,29 @@ import menuClosed from "../../../../../public/menu.svg";
 import menuOpen from "../../../../../public/close_small.svg";
 import { navigationLinks } from "../../constants";
 import Link from "next/link";
+import { cn } from "@/utils/classnames";
 export default function MenuButton() {
   const [isMenuOpen, setMenuOpenState] = useState(false);
+  const [hasEntranceAnimationRun, setEntranceAnimationRun] = useState(false);
+  const handleMenuClick = () => {
+    if (isMenuOpen) {
+      setTimeout(() => {
+        setMenuOpenState(false);
+      }, 500);
+    } else {
+      setMenuOpenState(true);
+    }
+    setEntranceAnimationRun((prev) => !prev);
+  };
   return (
     <div className="relative">
       <button
         className="cursor-pointer lg:hidden"
         aria-label="menu button"
-        onClick={() => {
-          setMenuOpenState((prev) => !prev);
-        }}
+        onClick={handleMenuClick}
+        aria-expanded={isMenuOpen}
       >
-        {isMenuOpen ? (
+        {hasEntranceAnimationRun ? (
           <>
             <Image src={menuOpen} alt="menu button" height={24} width={24} />
           </>
@@ -24,14 +35,19 @@ export default function MenuButton() {
           <Image src={menuClosed} alt="menu button" height={24} width={24} />
         )}
       </button>
-      {isMenuOpen && <MenuBar />}
+      {isMenuOpen && <MenuBar animationState={hasEntranceAnimationRun} />}
     </div>
   );
 }
 
-const MenuBar = () => {
+const MenuBar = ({ animationState }: { animationState: boolean }) => {
   return (
-    <div className="shadow-card absolute top-7.5 right-0 z-30 flex w-[min(70vw,395px)] flex-col items-start gap-7.5 bg-white p-6 pb-20 animate-menu-appear">
+    <div
+      className={cn(
+        `shadow-card absolute top-7.5 right-0 z-30 flex w-[min(70vw,395px)] flex-col items-start gap-7.5 bg-white p-6 pb-20`,
+        animationState ? "animate-menu-appear" : "animate-menu-disappear",
+      )}
+    >
       {navigationLinks.map((link, index) => (
         <Link
           key={index}
