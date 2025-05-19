@@ -5,23 +5,23 @@ import image3 from "../../../public/hero/image3.png";
 import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="w-full max-w-[1512px] px-14 grid grid-cols-2 gap-6 mx-auto items-center">
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-6">
-          <h1 className="font-poppins font-bold text-[64px] text-black-100 uppercase leadind-[80px] tracking-[4%]">
+    <section className="mx-auto flex w-full max-w-[1512px] flex-col items-center gap-10 px-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:px-14">
+      <div className="flex w-full flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-6">
+          <h1 className="font-poppins text-black-100 md:leadind-[80px] text-center text-5xl leading-[51px] font-bold tracking-[4%] uppercase md:text-left md:text-[64px]">
             your <span className="text-gold-100">perfect home</span> is our goal
           </h1>
-          <p className="font-montserrat font-medium text-black-100 text-xl">
+          <p className="font-montserrat text-black-100 text-center text-xl font-medium md:text-left">
             At 19Homes We Focus On Services Like House And Land Sales, Building
             And Architectural Designs. Work With Us To Bring Your Dream Home
             Into Reality.
           </p>
         </div>
-        <button className="bg-gold-100 px-6 py-4 rounded-sm font-montserrat font-bold text-white text-sm w-fit cursor-pointer hover:bg-gold-75 hover:text-black-100 transition duration-300">
+        <button className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 w-fit cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white transition duration-300">
           Get Started
         </button>
       </div>
-      <div className={`h-[620px] relative ${styles.imageContainer}`}>
+      <div className={`relative h-[620px] ${styles.imageContainer}`}>
         <div className={`${styles.imageBox} ${styles.imageBoxOne}`}>
           <Image
             src={image1}
@@ -46,7 +46,7 @@ export default function Hero() {
             placeholder="blur"
           />
         </div>
-        <div className="w-[80%] h-[562px] border-[10px] border-gold-25 rounded-4xl border-dashed absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></div>
+        <div className="border-gold-25 absolute top-[50%] left-[50%] h-[562px] w-[80%] translate-x-[-50%] translate-y-[-50%] rounded-4xl border-[10px] border-dashed"></div>
       </div>
     </section>
   );
