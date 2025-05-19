@@ -10,36 +10,37 @@ export default function BlogCard({
   text: string;
 }) {
   return (
-    <article className="w-[452px] flex flex-col gap-2.5">
+    <article className="flex w-[min(100%,342px)] flex-col gap-2.5 lg:w-[452px]">
       <Image
         src={source}
         alt={title}
         width={452}
         height={309}
-        className="object-cover"
+        className="h-[234px] w-full object-cover lg:h-[309px] lg:w-[452px]"
         placeholder="blur"
       />
-      <div className="flex flex-col gap-8 w-full">
-        <h3 className="font-poppins font-bold text-2xl text-black-100 capitalize">
+      <div className="flex w-full flex-col gap-1.5 lg:gap-8">
+        <h3 className="font-poppins text-black-100 text-lg font-bold capitalize lg:text-2xl">
           {title}
         </h3>
-        <p className="font-montserrat font-medium text-black-100 text-xl">
+        <p className="font-montserrat text-black-100 text-[15px] font-medium lg:text-xl">
           {text}
         </p>
-        <div className="w-full flex justify-between items-center">
-          <section className="flex gap-2 items-center">
+        <div className="flex w-full items-center justify-between">
+          <section className="flex items-center gap-2">
             <Image
               src="/blog-section/19HomesIcon.svg"
               alt="19 Homes Image"
               aria-hidden="true"
               height={50}
               width={50}
+              className="size-[39px] lg:size-[50px]"
             />
-            <p className="text-sm text-black-100 font-poppins font-normal capitalize">
+            <p className="text-black-100 font-poppins text-[10px] font-normal capitalize lg:text-sm">
               by 19homes
             </p>
           </section>
-          <p className="font-normal font-poppins text-sm text-black-75">
+          <p className="font-poppins text-black-75 text-[10px] font-normal lg:text-sm">
             7 comments
           </p>
         </div>

@@ -4,10 +4,10 @@ import SectionCaption from "../sectionCaption";
 
 export default function Blog() {
   return (
-    <section className="flex flex-col px-14 gap-10 items-center">
+    <section className="flex flex-col px-6 lg:px-14 gap-10 items-center">
       <section className="w-full flex-col items-center">
         <SectionCaption headText="Our Blog" subText="See our latest articles" />
-        <section className="w-full flex gap-6 gap-y-10 flex-wrap justify-center">
+        <section className="w-full flex gap-6 gap-y-4 lg:gap-y-10 flex-wrap justify-center">
           {blogPosts.map((post, index) => (
             <BlogCard
               key={index}
