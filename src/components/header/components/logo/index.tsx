@@ -8,10 +8,10 @@ export default function Logo() {
         height={56}
         width={142}
         alt="19 Homes Logo"
-        className="hidden lg:block"
+        className="hidden sm:block"
       />
       <div className="relative h-6 w-7.5">
-        <Image fill src={logo} alt="19Homes logo" className="lg:hidden" />
+        <Image fill src={logo} alt="19Homes logo" className="sm:hidden" />
       </div>
     </div>
   );
