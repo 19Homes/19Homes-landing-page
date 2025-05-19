@@ -1,28 +1,28 @@
 .imageContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 60px 1fr 1fr 60px;
-    row-gap: 20px;
-    column-gap: 24px;
+    grid-template-rows: 30px 1fr 1fr 30px;
+    row-gap: 10px;
+    column-gap: 10px;
 }
 
 .imageBox {
     z-index: 2;
     position: relative;
-    border-radius: 32px;
-    -webkit-border-radius: 32px;
-    -moz-border-radius: 32px;
-    -ms-border-radius: 32px;
-    -o-border-radius: 32px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
 
 .imageBox>img {
     object-fit: cover;
-    border-radius: 32px;
-    -webkit-border-radius: 32px;
-    -moz-border-radius: 32px;
-    -ms-border-radius: 32px;
-    -o-border-radius: 32px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
 
 .imageBoxOne {
