@@ -67,7 +67,7 @@ export default function RootLayout({
         <ActiveLinkProvider>
           <Header />
           {children}
-          <section className="mt-[100px] flex flex-col gap-[100px]">
+          <section className="mt-13 flex flex-col gap-13 md:mt-25 md:gap-25">
             <Testimonials />
             <Blog />
             <Newsletter />
