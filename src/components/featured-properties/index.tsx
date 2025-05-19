@@ -4,12 +4,12 @@ import SectionCard from "./components/section-card";
 
 export default function FeaturedProperties() {
   return (
-    <section className="px-14 py-10 flex flex-col items-center justify-center gap-20">
+    <section className="flex flex-col items-center justify-center gap-20 px-6 py-10 md:px-14">
       <SectionCaption
         headText="our featured properties"
         subText="view our featured properties"
       />
-      <section className="w-full max-w-[1512px] flex justify-between bg-[url('/featured-properties/graphic-vector.svg')] bg-no-repeat bg-center">
+      <section className="flex w-full max-w-[1512px] justify-between bg-[url('/featured-properties/graphic-vector.svg')] bg-center bg-no-repeat">
         {featuredPropertyCardDetails.map((card, index) => (
           <SectionCard
             key={index}

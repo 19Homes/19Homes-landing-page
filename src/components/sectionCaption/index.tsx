@@ -6,11 +6,11 @@ export default function SectionCaption({
   subText: string;
 }) {
   return (
-    <div className="w-full flex flex-col gap-2.5 mb-20 items-center text-center">
-      <h3 className="text-2xl text-gold-100 font-bold font-poppins capitalize">
+    <div className="mb-20 flex w-full flex-col items-center gap-2.5 text-center">
+      <h3 className="text-gold-100 font-poppins text-center text-sm font-bold capitalize md:text-2xl">
         {headText}
       </h3>
-      <p className="font-bold text-black-100 font-montserrat text-3xl capitalize">
+      <p className="text-black-100 font-montserrat text-center text-xl font-bold capitalize md:text-3xl">
         {subText}
       </p>
     </div>
