@@ -9,21 +9,21 @@ export default function SectionCard({
   price,
 }: FeaturedPropertyCardType) {
   return (
-    <article className="flex flex-col items-center relative rounded-4xl shadow-card w-[350px] h-[591px] bg-white">
-      <div className="relative w-full h-[350px]">
+    <article className="shadow-card relative flex h-[392px] w-[232px] flex-col items-center rounded-[21px] md:rounded-4xl bg-white md:h-[591px] md:w-[350px]">
+      <div className="relative h-[232px] md:h-[350px] w-full overflow-hidden">
         <Image
           src={image}
           alt={name}
           fill
-          className="object-cover rounded-t-4xl"
+          className="rounded-t-4xl object-cover"
           placeholder="blur"
         />
       </div>
-      <div className="w-full h-[241px] p-5 flex flex-col items-center">
+      <div className="flex h-40 w-full flex-col items-center p-3 md:h-[241px] md:p-5">
         <SectionCardInfo name={name} price={price} />
         <CardButton />
       </div>
-      <div className="absolute w-[378px] h-[595px] rounded-4xl -z-10 border-2 border-gold-25 top-[-14px] left-[-14px]"></div>
+      <div className="border-gold-25 absolute top-[-9px] left-[-9px] right-[-9px] -z-10 h-[394px] rounded-[21px] md:rounded-4xl border-2 md:top-[-14px] md:left-[-14px] md:h-[595px] md:w-[378px]"></div>
     </article>
   );
 }
