@@ -35,12 +35,23 @@ export default function MenuButton() {
           <Image src={menuClosed} alt="menu button" height={24} width={24} />
         )}
       </button>
-      {isMenuOpen && <MenuBar animationState={hasEntranceAnimationRun} />}
+      {isMenuOpen && (
+        <MenuBar
+          animationState={hasEntranceAnimationRun}
+          onClick={handleMenuClick}
+        />
+      )}
     </div>
   );
 }
 
-const MenuBar = ({ animationState }: { animationState: boolean }) => {
+const MenuBar = ({
+  animationState,
+  onClick,
+}: {
+  animationState: boolean;
+  onClick: () => void;
+}) => {
   return (
     <div
       className={cn(
@@ -53,6 +64,7 @@ const MenuBar = ({ animationState }: { animationState: boolean }) => {
           key={index}
           href={link.path}
           className="text-black-100 font-montserrat w-full text-left text-[16px] font-medium uppercase"
+          onClick={onClick}
         >
           {link.text}
         </Link>
