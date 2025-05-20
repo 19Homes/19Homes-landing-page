@@ -5,9 +5,9 @@ import FooterContactBlock from "../footer-contact-block";
 
 export default function FooterMainBlock() {
   return (
-    <section className="flex gap-[52px]">
+    <section className="flex gap-[13px] lg:gap-13">
       <FooterTextAndLogoBlock />
-      <section className="w-full flex justify-between">
+      <section className="flex w-full justify-between">
         <FooterCategoriesBlock />
         <FooterServicesBlock />
         <FooterContactBlock />
