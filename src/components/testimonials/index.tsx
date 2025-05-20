@@ -3,13 +3,13 @@ import TestimonialCardBlock from "./components/testimonial-card";
 
 export default function Testimonials() {
   return (
-    <section className="w-full max-w-[1440px] mx-auto px-14 pb-[44px] flex justify-center">
-      <div className="flex flex-col gap-20 items-center w-full ml-8">
-        <h3 className="font-poppins font-bold text-3xl text-black-100">
+    <section className="mx-auto flex w-full max-w-[1512px] justify-center px-4 lg:px-14 lg:pb-[44px]">
+      <div className="ml-8 flex w-full flex-col items-center gap-10 lg:gap-20">
+        <h3 className="font-poppins text-black-100 text-[20px] font-bold lg:text-3xl">
           What <span className="text-gold-100">Our Clients</span> Say
         </h3>
         <section
-          className="flex gap-[55px] w-full overflow-auto pl-8"
+          className="flex w-full gap-[55px] overflow-auto pl-4.5 lg:pl-10"
           style={{ scrollbarWidth: "none" }}
         >
           {testimonialCards.map((card, index) => (

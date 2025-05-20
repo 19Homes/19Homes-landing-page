@@ -4,7 +4,7 @@ export default function Stars({ stars }: { stars: number }) {
   const totalStarRating = 4;
   const startsArray = Array(totalStarRating).fill("");
   return (
-    <div className="w-full h-[18px] flex items-center justify-center gap-[14px]">
+    <div className="flex h-[18px] w-full items-center justify-center gap-[14px]">
       {startsArray.map((_, index) =>
         index <= stars - 1 ? (
           <Image
@@ -13,6 +13,7 @@ export default function Stars({ stars }: { stars: number }) {
             alt={`${index}-star rating`}
             width={12}
             height={12}
+            className="size-2.5 lg:size-3"
           />
         ) : (
           <Image
@@ -21,8 +22,9 @@ export default function Stars({ stars }: { stars: number }) {
             alt="star not rated"
             width={12}
             height={12}
+            className="size-2.5 lg:size-3"
           />
-        )
+        ),
       )}
     </div>
   );
