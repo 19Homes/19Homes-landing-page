@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function BlockTwo() {
   return (
-    <section className="grid grid-cols-2 gap-x-6 w-full max-w-[1512px]">
-      <article className="flex flex-col gap-5 font-normal font-montserrat text-black-100 text-xl">
+    <section className="flex w-full max-w-[1512px] flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-x-6">
+      <article className="font-montserrat text-black-100 flex flex-col gap-5 text-[10px] font-normal sm:text-xs md:text-sm lg:text-xl">
         <p>
           Our commitment to exceptional service goes beyond the buying and
           selling process. We strive to build and keep long-lasting
