@@ -5,7 +5,7 @@ import styles from "../../styles/styles.module.css";
 
 export default function BlockOne() {
   return (
-    <section className="grid grid-cols-2 gap-x-6 w-full max-w-[1512px]">
+    <section className="flex w-full flex-col gap-3 lg:grid lg:max-w-[1512px] lg:grid-cols-2 lg:gap-x-6">
       <div className={`${styles.blockOneBox}`}>
         <div className={`relative ${styles.blockOneBoxOne}`}>
           <Image src={imageOne} alt="a duplex building" fill />
@@ -14,7 +14,7 @@ export default function BlockOne() {
           <Image src={imageTwo} alt="a duplex building" fill />
         </div>
       </div>
-      <article className="flex flex-col gap-5 font-normal font-montserrat text-black-100 text-xl">
+      <article className="font-montserrat text-black-100 flex flex-col gap-2.5 text-[10px] font-normal sm:gap-3 sm:text-xs md:gap-3.5 md:text-sm lg:gap-5 lg:text-xl">
         <p>
           <span className="font-bold">19 Homes</span> is a dynamic real estate
           company dedicated to providing exceptional and customized services in
