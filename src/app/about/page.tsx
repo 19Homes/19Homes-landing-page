@@ -7,7 +7,7 @@ export default function About() {
   return (
     <main className="flex flex-col items-center">
       <PageHeader title="about us" />
-      <section className="mt-20 flex flex-col gap-[100px] px-14">
+      <section className="mt-13 flex w-full flex-col gap-13 px-6 sm:px-8 md:px-14 lg:mt-20 lg:gap-25">
         <BlockOne />
         <BlockTwo />
         <CompanyStatements />
