@@ -1,62 +1,64 @@
 import Image from "next/image";
 
 export default function ContactBlock() {
-    return (
-      <section className="mt-20 flex flex-col gap-20 items-center justify-start w-[806px]">
-        <div className="flex flex-col gap-8 rounded-sm border border-black py-4 w-full text-center">
-          <div className="w-full flex flex-col gap-4 items-center">
-            <h3 className="font-poppins font-medium text-gold-100 text-xl capitalize">
-              Visit us
-            </h3>
-            <div className="w-full flex gap-2.5 justify-center items-center">
-              <Image
-                src="/contact/distance.svg"
-                alt="icon"
-                aria-hidden="true"
-                width={20}
-                height={20}
-                className="shrink-0"
-              />
-              <p className="font-montserrat font-normal text-sm text-black-100 max-w-[225px]">
-                3, idumota street, Lagos Island Nigeria
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex flex-col gap-4 items-center">
-            <h3 className="font-poppins font-medium text-gold-100 text-xl capitalize">
-              send us a message
-            </h3>
-            <div className="w-full flex gap-2.5 justify-center">
-              <Image
-                src="/contact/email.svg"
-                alt="icon"
-                aria-hidden="true"
-                width={20}
-                height={20}
-              />
-              <p className="font-montserrat font-normal text-sm text-black-100 max-w-[225px]">
-                19homesempire@gmail.com
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex flex-col gap-4 items-center">
-            <h3 className="font-poppins font-medium text-gold-100 text-xl capitalize">
-              call us on
-            </h3>
-            <div className="w-full flex gap-2.5 justify-center">
-              <Image
-                src="/contact/call.svg"
-                alt="icon"
-                aria-hidden="true"
-                width={20}
-                height={20}
-              />
-              <p className="font-montserrat font-normal text-sm text-black-100 max-w-[225px]">
-                +2349035064848
-              </p>
-            </div>
+  return (
+    <section className="mt-[35px] flex w-[min(100%,806px)] flex-col items-center justify-start gap-20 md:mt-20">
+      <div className="flex w-full flex-col gap-3.5 rounded-sm border border-black py-2 text-center md:gap-8 md:py-4">
+        <div className="flex w-full flex-col items-center gap-1.5 sm:gap-4">
+          <h3 className="font-poppins text-gold-100 text-[8px] font-medium capitalize sm:text-sm md:text-xl">
+            Visit us
+          </h3>
+          <div className="flex w-full items-center justify-center gap-1 sm:gap-2.5">
+            <Image
+              src="/contact/distance.svg"
+              alt="icon"
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="size-2.5 shrink-0 sm:size-5"
+            />
+            <p className="font-montserrat text-black-100 max-w-[225px] text-[6px] font-normal sm:text-xs md:text-sm">
+              3, idumota street, Lagos Island Nigeria
+            </p>
           </div>
         </div>
-      </section>
-    );
+        <div className="flex w-full flex-col items-center gap-1.5 sm:gap-4">
+          <h3 className="font-poppins text-gold-100 text-[8px] font-medium capitalize sm:text-sm md:text-xl">
+            send us a message
+          </h3>
+          <div className="flex w-full items-center justify-center gap-1 sm:gap-2.5">
+            <Image
+              src="/contact/email.svg"
+              alt="icon"
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="size-2.5 sm:size-5"
+            />
+            <p className="font-montserrat text-black-100 max-w-[225px] text-[6px] font-normal sm:text-xs md:text-sm">
+              19homesempire@gmail.com
+            </p>
+          </div>
+        </div>
+        <div className="flex w-full flex-col items-center gap-1.5 sm:gap-4">
+          <h3 className="font-poppins text-gold-100 text-[8px] font-medium capitalize sm:text-sm md:text-xl">
+            call us on
+          </h3>
+          <div className="flex w-full items-center justify-center gap-1 sm:gap-2.5">
+            <Image
+              src="/contact/call.svg"
+              alt="icon"
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="size-2.5 shrink-0 sm:size-5"
+            />
+            <p className="font-montserrat text-black-100 max-w-[225px] text-[6px] font-normal sm:text-xs md:text-sm">
+              +2349035064848
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
