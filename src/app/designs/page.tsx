@@ -4,10 +4,10 @@ import { CompanyDesigns } from "@/constants";
 
 export default function Design() {
   return (
-    <main className="flex flex-col items-center gap-41">
+    <main className="flex flex-col items-center gap-13 lg:gap-41">
       <PageHeader title="architectural designs" />
-      <section className="flex w-full max-w-[1512px] flex-col items-center gap-20 px-19">
-        <h2 className="font-poppins text-black-100 text-center text-3xl font-bold capitalize">
+      <section className="flex w-full max-w-[1512px] flex-col items-center gap-4 lg:gap-20 px-19">
+        <h2 className="font-poppins text-black-100 text-center text-xl lg:text-3xl font-bold capitalize">
           View our <span className="text-gold-100">architectural design</span>{" "}
           gallery
         </h2>
