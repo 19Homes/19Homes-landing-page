@@ -13,15 +13,15 @@ export default function DesignImageBlock() {
     ];
   }, [currentDesign]);
   useEffect(() => {
-    const imageChangeInterval = setInterval(() => {
+    const imageChangeInterval = setTimeout(() => {
       setCurrentImage((prev) => (images[prev + 1] ? prev + 1 : 0));
     }, 5000);
 
-    return () => clearInterval(imageChangeInterval);
-  }, [images]);
+    return () => clearTimeout(imageChangeInterval);
+  }, [images, currentImage]);
   return (
-    <section className="mt-20 flex w-full max-w-[1512px] flex-col items-center gap-12 px-14">
-      <div className="relative h-[747px] w-full">
+    <section className="mt-[35px] flex w-full max-w-[1512px] flex-col items-center gap-12 px-6 sm:px-8 md:px-10 lg:mt-20 lg:px-14">
+      <div className="shadow-card relative aspect-[1.87/1] w-full lg:aspect-[auto] lg:h-[747px] lg:shadow-none">
         {images.map((image, index) => (
           <Image
             key={index}
@@ -35,14 +35,14 @@ export default function DesignImageBlock() {
           />
         ))}
       </div>
-      <div className="flex justify-center gap-6">
+      <div className="flex w-full justify-center gap-4 sm:gap-8">
         {images.map((image, index) => (
           <button
             key={index}
             className={cn(
-              `border-black-100 group relative h-50 w-50 cursor-pointer overflow-hidden rounded-[10px] border-3 shadow-[0_3px_10px_rgba(0,0,0,0.2)] duration-300 hover:shadow-[0_5px_12px_rgba(0,0,0,0.5)]`,
+              `border-black-100 group relative aspect-[1/1] w-[25%] cursor-pointer overflow-hidden rounded-[10px] border-2 shadow-[0_3px_10px_rgba(0,0,0,0.2)] duration-300 hover:shadow-[0_5px_12px_rgba(0,0,0,0.5)] md:border-3 lg:aspect-[auto] lg:h-50 lg:w-50`,
               index === currentImage
-                ? "outline-gold-100 outline-5 outline-offset-4 outline-double"
+                ? "outline-gold-100 outline-3 outline-5 outline-offset-4 outline-double"
                 : "outline-none",
             )}
             onClick={() => {

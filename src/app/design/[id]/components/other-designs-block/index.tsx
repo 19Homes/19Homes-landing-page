@@ -7,12 +7,12 @@ export default function OtherDesignsBlock() {
   const otherDesigns = UseGetOtherDesigns();
   const router = useRouter();
   return (
-    <section className="flex w-full flex-col items-center gap-25">
+    <section className="flex w-full flex-col items-center gap-10 lg:gap-25">
       <h2 className="text-black-100 font-poppins text-center text-3xl font-bold">
         See Other <span className="text-gold-100">Designs</span>
       </h2>
       <div
-        className="flex h-[615px] w-full gap-10 overflow-x-auto pl-14"
+        className="flex w-full gap-8 py-4 lg:py-0 overflow-x-auto pl-14 lg:h-[615px] lg:gap-10"
         style={{ scrollbarWidth: "none" }}
       >
         {otherDesigns.map((design, index) => (

@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <main>
       <PageHeader title="Single Design Portfolio" />
-      <section className="flex flex-col items-center gap-25">
+      <section className="flex flex-col items-center gap-13 lg:gap-25">
         <DesignImageBlock />
         <DesignContactBanner />
         <OtherDesignsBlock />
