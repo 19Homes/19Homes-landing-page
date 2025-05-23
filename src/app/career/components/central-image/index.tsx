@@ -15,7 +15,7 @@ export default function CentralImage() {
     return () => clearInterval(imageInterval);
   }, []);
   return (
-    <div className="bg-gold-25 relative col-span-3 h-[500px] overflow-hidden rounded-xl">
+    <div className="bg-gold-25 relative col-span-3 h-[300px] overflow-hidden rounded-xl sm:h-[400px] md:h-[500px]">
       {centralImages.map((image, index) => (
         <Image
           alt="building"

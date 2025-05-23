@@ -7,11 +7,11 @@ const CardColumn = ({ columnImages }: { columnImages: StaticImageData[] }) => {
       {Array(2)
         .fill("")
         .map((_, index) => (
-          <div key={index} className="flex flex-col gap-4">
+          <div key={index} className="flex flex-col gap-2 sm:gap-4">
             {columnImages.map((image, index) => (
               <div
                 key={index}
-                className="bg-black-25 relative h-[110px] w-full shrink-0 overflow-hidden rounded-xl"
+                className="bg-black-25 relative h-[60px] w-full shrink-0 overflow-hidden rounded-xl sm:h-[110px]"
               >
                 <Image
                   src={image}
