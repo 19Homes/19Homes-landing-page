@@ -14,6 +14,7 @@ export async function register(_: unknown, formData: FormData) {
     console.log(validatedFields.error.flatten().fieldErrors);
     return {
       errors: validatedFields.error.flatten().fieldErrors,
+      email: email,
     };
   }
 }
