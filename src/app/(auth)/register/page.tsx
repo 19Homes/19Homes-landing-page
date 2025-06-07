@@ -26,7 +26,7 @@ export default function Page() {
                 required
                 className={styleClasses}
               />
-              {state?.errors?.name && (
+              {state?.errors && "name" in state.errors && (
                 <p
                   className="font-montserrat font-regular text-left text-sm font-bold text-red-500"
                   aria-live="assertive"
@@ -67,7 +67,7 @@ export default function Page() {
                 required
                 className={styleClasses}
               />
-              {state?.errors?.password && (
+              {state?.errors && "password" in state.errors && (
                 <p
                   className="font-montserrat font-regular text-left text-sm font-bold text-red-500"
                   aria-live="assertive"
@@ -85,7 +85,7 @@ export default function Page() {
                 placeholder="Confirm Password"
                 className={styleClasses}
               />
-              {state?.errors?.confirmPassword && (
+              {state?.errors && "confirmPassword" in state.errors && (
                 <p
                   className="font-montserrat font-regular text-left text-sm font-bold text-red-500"
                   aria-live="assertive"
