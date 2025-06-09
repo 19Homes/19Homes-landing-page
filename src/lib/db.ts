@@ -15,15 +15,11 @@ const client = new MongoClient(uri, {
   connectTimeoutMS: 5000,
 });
 
-let isConnected = false;
 
 async function getDB(dbName: string): Promise<Db | null> {
   try {
-    if (!isConnected) {
       await client.connect();
-      isConnected = true;
       console.log("MongoDB connected successfully");
-    }
     return client.db(dbName);
   } catch (error) {
     console.error("MongoDB connection error:", error);
