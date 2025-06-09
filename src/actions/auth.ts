@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs";
 import { getCollection } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { createSession } from "./session";
-import { use } from "react";
 export async function register(_: unknown, formData: FormData) {
   const email = formData.get("email");
   const name = formData.get("name");
