@@ -69,6 +69,20 @@ const MenuBar = ({
           {link.text}
         </Link>
       ))}
+      <Link
+          href='/login'
+          className="text-black-100 font-montserrat w-full text-left text-[16px] font-medium uppercase"
+          onClick={onClick}
+        >
+          Login
+        </Link>
+        <Link
+          href='/register'
+          className="text-black-100 font-montserrat w-full text-left text-[16px] font-medium uppercase"
+          onClick={onClick}
+        >
+          Sign Up
+        </Link>
     </div>
   );
 };
