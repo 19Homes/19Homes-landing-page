@@ -16,4 +16,10 @@ export const RegisterFormSchema = z
     path: ["confirmPassword"],
   });
 
+export const LoginFormSchema = z.object({
+  email: z.string().email("Please, enter a valid email").trim(),
+  password: z.string().min(1, "Password cannot be empty").trim(),
+});
+
+export type LoginInput = z.infer<typeof LoginFormSchema>;
 export type RegisterInput = z.infer<typeof RegisterFormSchema>;
