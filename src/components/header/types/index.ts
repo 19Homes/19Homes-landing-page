@@ -10,4 +10,5 @@ export type navigationLink = {
 export type headerButtonTypes = {
   classnames: string;
   text: string;
+  path: string;
 };
