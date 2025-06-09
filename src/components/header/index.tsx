@@ -12,8 +12,13 @@ export default function Header() {
         <HeaderButton
           classnames="border border-gold-100 text-gold-100 bg-white"
           text="login"
+          path="/login"
         />
-        <HeaderButton classnames="bg-gold-100 text-white" text="sign up" />
+        <HeaderButton
+          classnames="bg-gold-100 text-white"
+          text="sign up"
+          path="/register"
+        />
       </div>
       <MenuButton />
     </header>
