@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { getCollection } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { createSession } from "./session";
+import { cookies } from "next/headers";
 export async function register(_: unknown, formData: FormData) {
   const email = formData.get("email");
   const name = formData.get("name");
@@ -69,4 +70,9 @@ export async function login(_: unknown, formData: FormData) {
     return { errors: { password: "You have entered an incorrect password." } };
   await createSession(existingUser._id.toString());
   redirect("/");
+}
+
+export async function logout() {
+  const cookiestore = await cookies();
+  cookiestore.delete("session");
 }
