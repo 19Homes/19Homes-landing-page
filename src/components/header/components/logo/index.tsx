@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "../../../../../public/19Homes-icon.png";
 export default function Logo() {
   return (
-    <div>
+    <div className="mr-auto">
       <Image
         src="/19Homes-icon.svg"
         height={56}

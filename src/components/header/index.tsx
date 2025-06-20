@@ -3,20 +3,22 @@ import Navigation from "./components/nav";
 import HeaderButton from "./components/button";
 import MenuButton from "./components/menu-button";
 import { getAuthUser } from "@/lib/getAuthUser";
-
+import { logout } from "@/actions/auth";
 export default async function Header() {
   const authenticatedUser = await getAuthUser();
   return (
     <header className="mt-13 flex items-start justify-between px-6 lg:mt-10 lg:px-14">
       <Logo />
       <Navigation />
-      <div className="hidden gap-4 lg:flex">
+      <div className="ml-auto hidden gap-4 lg:flex">
         {authenticatedUser ? (
-          <HeaderButton
-            classnames="bg-gold-100 text-white"
-            text="logout"
-            path="/"
-          />
+          <form action={logout}>
+            <HeaderButton
+              classnames="bg-gold-100 text-white"
+              text="logout"
+              path="/"
+            />
+          </form>
         ) : (
           <>
             {" "}
