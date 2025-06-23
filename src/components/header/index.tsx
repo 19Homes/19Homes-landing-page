@@ -14,7 +14,7 @@ export default async function Header() {
         {authenticatedUser ? (
           <form action={logout}>
             <HeaderButton
-              classnames="bg-gold-100 text-white"
+              classnames="bg-gold-100 text-white hover:bg-gold-75 hover:text-black-100"
               text="logout"
               path="/"
             />
