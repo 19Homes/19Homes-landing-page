@@ -2,6 +2,7 @@
 import { RegisterFormSchema, LoginFormSchema } from "@/lib/rules";
 import bcrypt from "bcryptjs";
 import { getCollection } from "@/lib/db";
+import { createSupabaseClient } from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import { createSession } from "./session";
 import { cookies } from "next/headers";
@@ -22,21 +23,59 @@ export async function register(_: unknown, formData: FormData) {
       email: email,
     };
   }
-  const usersCollection = await getCollection("users");
+  const supabase = createSupabaseClient();
+  if (!supabase)
+    return {
+      errors: { email: "Failed to connect." },
+    };
+
+  const { data: existingUser, error } = await supabase
+    .from("19homes users")
+    .select("email")
+    .eq("email", validatedFields.data.email);
+  if (error) return { errors: { email: "Server Error. Please, try again" } };
+  console.log("existing user", existingUser);
+  if (existingUser.length)
+    return {
+      errors: { email: "Email has already been registered. Please sign in." },
+    };
+  const hashedPassword = await bcrypt.hash(validatedFields.data.password, 10);
+  const { data: insertedData, error: insertError } = await supabase
+    .from("19homes users")
+    .insert([
+      {
+        email: validatedFields.data.email,
+        name: validatedFields.data.name,
+        password: hashedPassword,
+      },
+    ])
+    .select();
+  if (insertError) {
+    console.log(insertError.message);
+    return {
+      errors: {
+        email:
+          "Sorry, we are unable to register you at this time. Please, try again later. Thank you.",
+      },
+    };
+  }
+  console.log("INSERTED DATA IS:", insertedData);
+  await createSession(validatedFields.data.email);
+  redirect("/");
+  /*const usersCollection = await getCollection("users");
   if (!usersCollection)
     return { errors: { email: "Server Error. Please, try again" } };
   const existingUser = await usersCollection.findOne({ email });
   if (existingUser)
     return {
       errors: { email: "Email has already been registered. Please sign in." },
-    };
-  const hashedPassword = await bcrypt.hash(validatedFields.data.password, 10);
-  const result = await usersCollection.insertOne({
+    };*/
+  //  `` const hashedPassword = await bcrypt.hash(validatedFields.data.password, 10);
+  /*const result = await usersCollection.insertOne({
     email,
     password: hashedPassword,
   });
-  await createSession(result.insertedId.toString());
-  redirect("/");
+  await createSession(result.insertedId.toString());*/
 }
 
 export async function login(_: unknown, formData: FormData) {
