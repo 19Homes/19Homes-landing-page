@@ -90,7 +90,7 @@ export async function login(_: unknown, formData: FormData) {
       errors: validatedLoginFields.error.flatten().fieldErrors,
     };
   }
-  const usersCollection = await getCollection("users");
+  /*const usersCollection = await getCollection("users");
   if (!usersCollection)
     return { errors: { email: "Server Error. Please, try again" } };
   const existingUser = await usersCollection.findOne({
@@ -99,15 +99,33 @@ export async function login(_: unknown, formData: FormData) {
   if (!existingUser)
     return {
       errors: { email: "This email has not been registered. Please, sign up." },
+    };*/
+  const supabase = createSupabaseClient();
+  if (!supabase)
+    return {
+      errors: { email: "Failed to connect." },
+    };
+
+  const { data: existingUser, error } = await supabase
+    .from("19homes users")
+    .select("*")
+    .eq("email", validatedLoginFields.data.email);
+  if (error) return { errors: { email: "Server Error. Please, try again" } };
+  console.log("existing user", existingUser);
+  if (!existingUser.length)
+    return {
+      errors: {
+        email: "This email has not been registered. Please, sign up.",
+      },
     };
   const correctPassword = await bcrypt.compare(
     validatedLoginFields.data.password,
-    existingUser.password,
+    existingUser[0].password,
   );
   console.log(correctPassword);
   if (!correctPassword)
     return { errors: { password: "You have entered an incorrect password." } };
-  await createSession(existingUser._id.toString());
+  await createSession(existingUser[0].email);
   redirect("/");
 }
 
