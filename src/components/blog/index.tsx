@@ -1,6 +1,8 @@
+"use client";
 import { blogPosts } from "./constants";
 import BlogCard from "./components/blog-card";
 import SectionCaption from "../sectionCaption";
+import { redirect } from "next/navigation";
 
 export default function Blog() {
   return (
@@ -18,7 +20,12 @@ export default function Blog() {
           ))}
         </section>
       </section>
-      <button className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]">
+      <button
+        className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]"
+        onClick={() => {
+          redirect("/blogs");
+        }}
+      >
         view all
       </button>
     </section>
