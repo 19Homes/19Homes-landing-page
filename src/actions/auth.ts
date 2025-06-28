@@ -1,7 +1,6 @@
 "use server";
 import { RegisterFormSchema, LoginFormSchema } from "@/lib/rules";
 import bcrypt from "bcryptjs";
-import { getCollection } from "@/lib/db";
 import { createSupabaseClient } from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import { createSession } from "./session";
