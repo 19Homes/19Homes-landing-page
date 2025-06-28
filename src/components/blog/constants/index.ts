@@ -8,18 +8,18 @@ export const blogPosts: BlogPost[] = [
     title: "real estate investment benefits",
     image: image1,
     description:
-      "Lorem ipsum dolor sit amet consectetur. Et aliquam proin pulvinar enim senectus vitae quis aliquam. Pharetra nunc eget viverra magna blandit. Eget dictum sit netus at.",
+      "Discover how investing in real estate offers stability, passive income, long-term wealth, and protection against inflation",
   },
   {
     title: "the future of real estate",
     image: image2,
     description:
-      "Lorem ipsum dolor sit amet consectetur. Et aliquam proin pulvinar enim senectus vitae quis aliquam. Pharetra nunc eget viverra magna blandit. Eget dictum sit netus at.",
+      "Explore how technology, sustainability, and evolving lifestyles are shaping the exciting future of real estate investment.",
   },
   {
-    title: "why you should invest in real estate",
+    title: "the impact of interest rates on real estate",
     image: image3,
     description:
-      "Lorem ipsum dolor sit amet consectetur. Et aliquam proin pulvinar enim senectus vitae quis aliquam. Pharetra nunc eget viverra magna blandit. Eget dictum sit netus at.",
+      "Understand how fluctuations in interest rates affect property values, mortgage costs, and the broader real estate market",
   },
 ];
