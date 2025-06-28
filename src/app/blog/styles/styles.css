@@ -1,0 +1,57 @@
+.blog h1 {
+    color: var(--color-gold-100);
+    border-bottom: 2px solid var(--color-gold-75);
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    margin-bottom: 24px;
+    max-width: 45ch;
+}
+
+.blog h2 {
+    color: var(--color-black-100);
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    margin-bottom: 5px;
+    max-width: 45ch;
+}
+
+.blog p, .blog li {
+
+    color: var(--color-black-75);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
+    line-height: 1.6;
+    word-spacing: 2px;
+    margin-bottom: 1rem;
+    max-width: 45ch;
+}
+
+.blog li {
+    list-style-type: disc;
+    list-style-position: inside;
+
+}
+
+
+@media screen and (min-width: 800px) {
+    .blog h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        max-width: 45ch;
+    }
+
+    .blog h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        max-width: 60ch;
+    }
+
+    .blog p, .blog li {
+        margin-bottom: 1.8rem;
+        max-width: 60ch;
+    }
+}
