@@ -4,7 +4,6 @@ import Button from "@/components/button";
 import PageHeader from "@/components/page-header";
 import { login } from "@/actions/auth";
 import { useActionState } from "react";
-import { sendEmail } from "@/services/sendEmail";
 const styleClasses =
   "border p-4 rounded-sm border-black-100 placeholder:font-montserrat font-montserrat placeholder:font-normal font-medium placeholder:text-black-75 text-black-100 text-sm placeholder:text-sm w-[min(100%,400px)]";
 
@@ -60,7 +59,6 @@ export default function Page() {
           <Button
             text={isPending ? "Loging In" : "Log In"}
             onclick={async () => {
-              await sendEmail();
             }}
           />
         </form>
