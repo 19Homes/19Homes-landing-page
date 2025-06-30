@@ -84,15 +84,16 @@ const MenuBar = ({
       ))}
       <div className="flex flex-col gap-7.5">
         {authenticatedUser ? (
-          <form action={logout}>
-            <Link
-              href="/"
-              className="text-black-100 font-montserrat w-full text-left text-[16px] font-medium uppercase"
-              onClick={onClick}
-            >
-              Logout
-            </Link>
-          </form>
+          <Link
+            href="/"
+            className="text-black-100 font-montserrat w-full text-left text-[16px] font-medium uppercase"
+            onClick={async () => {
+              await logout();
+              onClick();
+            }}
+          >
+            Logout
+          </Link>
         ) : (
           <>
             <Link
