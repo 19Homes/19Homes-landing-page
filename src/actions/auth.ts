@@ -5,6 +5,7 @@ import { createSupabaseClient } from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import { createSession } from "./session";
 import { cookies } from "next/headers";
+import { sendEmail } from "./sendEmail";
 export async function register(_: unknown, formData: FormData) {
   const email = formData.get("email");
   const name = formData.get("name");
@@ -59,6 +60,7 @@ export async function register(_: unknown, formData: FormData) {
     };
   }
   console.log("INSERTED DATA IS:", insertedData);
+  await sendEmail(validatedFields.data.name, validatedFields.data.email);
   await createSession(validatedFields.data.email);
   redirect("/");
   /*const usersCollection = await getCollection("users");
