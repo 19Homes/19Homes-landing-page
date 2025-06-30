@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <main>
       <PageHeader title={blogPost.title} />
-      <section className="md:px-14 w-100vw flex flex-col gap-12 px-6">
+      <section className="md:px-14 w-100vw flex flex-col gap-12 px-6 mt-10 md:mt-16">
         <div className="flex w-full flex-col gap-4 md:gap-6">
           <Image
             src={blogPost.image}
