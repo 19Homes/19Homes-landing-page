@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <main className="flex flex-col items-center">
       <PageHeader title="Blogs" />
-      <section className="mt-20 flex w-full max-w-[1510px] flex-wrap justify-center gap-12 px-13 md:mt-25 md:px-16">
+      <section className="mt-20 flex w-full max-w-[1510px] flex-wrap justify-center gap-12 px-6 md:mt-25 md:px-14">
         {blogPosts.map((post, index) => (
           <BlogPageCard
             key={index}
