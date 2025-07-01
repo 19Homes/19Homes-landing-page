@@ -28,6 +28,26 @@ export default function Hero() {
         ],
         delay: stagger(150),
       });
+      animate(".hero-subtext", {
+        scale: [
+          { to: 0.9, ease: "inQuad", duration: 100 },
+          { to: 1, ease: "in", duration: 300 },
+        ],
+        opacity: [{ to: 1, ease: "inCubic", duration: 300 }],
+        x: [
+          { to: "2rem", ease: "inQuad", duration: 100 },
+          { to: "0", ease: createSpring({ stiffness: 300 }), duration: 300 },
+        ],
+        delay: 600,
+      });
+      animate(".hero-btn", {
+        opacity: [{ to: 1, ease: "in", duration: 300 }],
+        x: [
+          { from: "3rem", ease: "inQuad", duration: 200 },
+          { to: "0", ease: 'inOut(p = 1.675)', duration: 500 },
+        ],
+        delay: 900,
+      });
     });
     return () => scope.current?.revert();
   }, []);
@@ -58,14 +78,14 @@ export default function Hero() {
               </div>
             ))}
           </h1>
-          <p className="font-montserrat text-black-100 my-text max-w-[40ch] text-center text-xl font-medium lg:text-left">
+          <p className="font-montserrat text-black-100 my-text hero-subtext max-w-[40ch] text-center text-xl font-medium opacity-0 lg:text-left">
             At 19Homes We Focus On Services Like House And Land Sales, Building
             And Architectural Designs. Work With Us To Bring Your Dream Home
             Into Reality.
           </p>
         </div>
         <button
-          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 w-fit cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white transition duration-300 hover:shadow-[3px_5px_10px_#0000007f]"
+          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 hero-btn w-fit cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white opacity-0 transition duration-300 hover:shadow-[3px_5px_10px_#0000007f]"
           onClick={redirectToRegister}
         >
           Get Started
