@@ -44,9 +44,52 @@ export default function Hero() {
         opacity: [{ to: 1, ease: "in", duration: 300 }],
         x: [
           { from: "3rem", ease: "inQuad", duration: 200 },
-          { to: "0", ease: 'inOut(p = 1.675)', duration: 500 },
+          { to: "0", ease: "inOut(p = 1.675)", duration: 500 },
         ],
         delay: 900,
+      });
+      animate(".image-border", {
+        scale: [
+          { from: 0.6, ease: createSpring({ stiffness: 200 }), duration: 500 },
+        ],
+        opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
+        delay: 400,
+      });
+      animate(".image-one", {
+        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
+        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+        x: [
+          {
+            from: "3rem",
+            ease: createSpring({ stiffness: 200 }),
+            duration: 400,
+          },
+        ],
+        delay: 800,
+      });
+      animate(".image-two", {
+        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
+        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+        x: [
+          {
+            from: "-3rem",
+            ease: createSpring({ stiffness: 200 }),
+            duration: 400,
+          },
+        ],
+        delay: 1000,
+      });
+      animate(".image-three", {
+        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
+        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+        y: [
+          {
+            from: "-3rem",
+            ease: createSpring({ stiffness: 200 }),
+            duration: 400,
+          },
+        ],
+        delay: 1200,
       });
     });
     return () => scope.current?.revert();
@@ -94,7 +137,9 @@ export default function Hero() {
       <div
         className={`relative h-[308px] w-full lg:h-[620px] ${styles.imageContainer}`}
       >
-        <div className={`${styles.imageBox} ${styles.imageBoxOne}`}>
+        <div
+          className={`${styles.imageBox} ${styles.imageBoxOne} image-one opacity-0`}
+        >
           <Image
             src={image1}
             alt="A sophisticated building"
@@ -102,7 +147,9 @@ export default function Hero() {
             placeholder="blur"
           />
         </div>
-        <div className={`${styles.imageBox} ${styles.imageBoxTwo}`}>
+        <div
+          className={`${styles.imageBox} ${styles.imageBoxTwo} image-two opacity-0`}
+        >
           <Image
             src={image2}
             alt="A sophisticated building"
@@ -110,7 +157,9 @@ export default function Hero() {
             placeholder="blur"
           />
         </div>
-        <div className={`${styles.imageBox} ${styles.imageBoxThree}`}>
+        <div
+          className={`${styles.imageBox} ${styles.imageBoxThree} image-three opacity-0`}
+        >
           <Image
             src={image3}
             alt="A sophisticated building"
@@ -118,7 +167,7 @@ export default function Hero() {
             placeholder="blur"
           />
         </div>
-        <div className="border-gold-25 absolute top-[50%] left-[50%] h-[279px] w-[273px] translate-x-[-50%] translate-y-[-50%] rounded-[15px] border-[5px] border-dashed lg:h-[562px] lg:w-[551px] lg:rounded-4xl lg:border-10"></div>
+        <div className="border-gold-25 image-border absolute top-[50%] left-[50%] h-[279px] w-[273px] translate-x-[-50%] translate-y-[-50%] rounded-[15px] border-[5px] border-dashed opacity-0 lg:h-[562px] lg:w-[551px] lg:rounded-4xl lg:border-10"></div>
       </div>
     </section>
   );
