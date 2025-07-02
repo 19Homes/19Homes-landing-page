@@ -43,8 +43,11 @@ export default function Hero() {
       animate(".hero-btn", {
         opacity: [{ to: 1, ease: "in", duration: 300 }],
         x: [
-          { from: "3rem", ease: "inQuad", duration: 200 },
-          { to: "0", ease: "inOut(p = 1.675)", duration: 500 },
+          {
+            from: "3rem",
+            ease: createSpring({ stiffness: 300 }),
+            duration: 500,
+          },
         ],
         delay: 900,
       });
