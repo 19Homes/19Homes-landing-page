@@ -41,15 +41,15 @@ export default function Hero() {
         delay: 600,
       });
       animate(".hero-btn", {
-        opacity: [{ to: 1, ease: "in", duration: 300 }],
+        opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
         x: [
           {
             from: "3rem",
-            ease: createSpring({ stiffness: 300 }),
-            duration: 500,
+            ease: 'outElastic',
+            duration: 300,
           },
         ],
-        delay: 900,
+        delay: 500,
       });
       animate(".image-border", {
         scale: [
