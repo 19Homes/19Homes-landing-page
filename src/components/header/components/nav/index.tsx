@@ -2,23 +2,41 @@
 
 import Link from "next/link";
 import { navigationLinks } from "../../constants";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { cn } from "@/utils/classnames";
 import { ChevronDown } from "lucide-react";
 import { activeLinkContext } from "@/contexts/activeLinkContext";
+import { animate, createScope} from "animejs";
 export default function Navigation() {
   const { setActiveLinkIndex, activeLinkIndex } = useContext(activeLinkContext);
   const handleLinkClick = (index: number) => {
     setActiveLinkIndex(index);
   };
+  const scope = useRef<ReturnType<typeof createScope> | null>(null);
+  const root = useRef(null);
+  useEffect(() => {
+    scope.current = createScope({ root }).add(() => {
+      animate(".navlink", {
+        opacity: [{ to: 1, ease: "outBack", duration: 300 }],
+        y: [
+          {
+            from: "40px",
+            ease: 'outBack',
+            duration: 200,
+          },
+        ],
+        delay: (_, i) => 150 * i + 200,
+      });
+    });
+  }, []);
   return (
-    <nav className="hidden lg:flex h-fit gap-12">
+    <nav ref={root} className="hidden h-fit gap-12 lg:flex">
       {navigationLinks.map((link, index) => (
         <Link
           key={index}
           href={link.path}
           className={cn(
-            "font-montserrat group p-2 text-sm font-medium capitalize duration-300",
+            "font-montserrat group navlink p-2 text-sm font-medium capitalize opacity-0 duration-300",
             index === activeLinkIndex ? "text-gold-100" : "text-black-100",
             link.hasChild ? "hover:bg-gold-25" : "hover:text-gold-75",
           )}
