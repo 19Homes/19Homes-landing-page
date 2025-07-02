@@ -11,7 +11,7 @@ export default function Logo() {
     scope.current = createScope({ root }).add(() => {
       animate(".logo", {
         opacity: [{ to: 1, ease: "outQuad", duration: 200 }],
-        y: [{ from: "2rem", ease: "outQuad", duration: 200 }],
+        y: [{ from: "20px", ease: "outQuad", duration: 200 }],
       });
     });
   }, []);
