@@ -1,11 +1,24 @@
+"use client";
 import Logo from "./components/logo";
 import Navigation from "./components/nav";
 import HeaderButton from "./components/button";
 import MenuButton from "./components/menu-button";
 import { getAuthUser } from "@/lib/getAuthUser";
 import { logout } from "@/actions/auth";
-export default async function Header() {
-  const authenticatedUser = await getAuthUser();
+import { useEffect, useState } from "react";
+import { JWTPayload } from "jose";
+export default function Header() {
+  const [authenticatedUser, setAuthenticatedUser] = useState<JWTPayload | null>(
+    null,
+  );
+  useEffect(() => {
+    async function getAuthenticatedUser() {
+      const authUser = await getAuthUser();
+      setAuthenticatedUser(authUser);
+    }
+    getAuthenticatedUser();
+  }, []);
+
   return (
     <header className="mt-13 flex items-start justify-between px-6 lg:mt-10 lg:px-14">
       <Logo />
