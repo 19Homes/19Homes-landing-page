@@ -13,7 +13,7 @@ export default function SectionCaption({
   useEffect(() => {
     scope.current = createScope({ root }).add(() => {
       animate(".head-text", {
-        y: [{ to: "0", ease: createSpring({ stiffness: 100 }), duration: 500 }],
+        y: [{ to: "0", ease: createSpring({ stiffness: 100, damping: 25 }) }],
         delay: stagger(150),
         autoplay: onScroll({
           container: ".scroll-container",
@@ -22,7 +22,7 @@ export default function SectionCaption({
         }),
       });
       animate(".p-text", {
-        y: [{ to: "0", ease: createSpring({ stiffness: 100 }), duration: 500 }],
+        y: [{ to: "0", ease: createSpring({ stiffness: 100, damping: 25 }) }],
         delay: stagger(150, { start: 450 }),
         autoplay: onScroll({
           container: ".scroll-container",
@@ -43,8 +43,8 @@ export default function SectionCaption({
         {headText.split(" ").map((text, index) => (
           <div
             key={index}
-            className="head-text mr-2 inline-block"
-            style={{ transform: "translateY(120%)" }}
+            className="head-text mr-1 inline-block sm:mr-2"
+            style={{ transform: "translateY(220%)" }}
           >
             {text}
           </div>
@@ -54,8 +54,8 @@ export default function SectionCaption({
         {subText.split(" ").map((text, index) => (
           <span
             key={index}
-            className="p-text mr-2 inline-block"
-            style={{ transform: "translateY(120%)" }}
+            className="p-text mr-1 inline-block sm:mr-2"
+            style={{ transform: "translateY(220%)" }}
           >
             {text}
           </span>
