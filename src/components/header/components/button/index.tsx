@@ -39,6 +39,7 @@ export default function HeaderButton({
         delay: (_, i) => 200 * i + 700,
       });
     });
+    return () => scope.current?.revert();
   }, []);
   return (
     <div ref={root}>

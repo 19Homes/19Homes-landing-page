@@ -28,6 +28,7 @@ export default function Navigation() {
         delay: (_, i) => 150 * i + 200,
       });
     });
+    return () => scope.current?.revert();
   }, []);
   return (
     <nav ref={root} className="hidden h-fit gap-12 lg:flex">

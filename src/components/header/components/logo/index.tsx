@@ -14,6 +14,7 @@ export default function Logo() {
         y: [{ from: "20px", ease: "outQuad", duration: 200 }],
       });
     });
+    return () => scope.current?.revert();
   }, []);
   return (
     <div ref={root} className="mr-auto">
