@@ -17,8 +17,9 @@ export default function SectionCaption({
         delay: stagger(150),
         autoplay: onScroll({
           container: ".scroll-container",
-          enter: "80%",
-          leave: "100",
+          enter: "bottom-=200",
+          leave: "top+=200",
+          sync: "play pause reverse reverse",
         }),
       });
       animate(".p-text", {
@@ -26,8 +27,9 @@ export default function SectionCaption({
         delay: stagger(150, { start: 450 }),
         autoplay: onScroll({
           container: ".scroll-container",
-          enter: "80%",
-          leave: "100",
+          enter: "bottom-=200",
+          leave: "top+=200",
+          sync: "play pause reverse reverse",
         }),
       });
     });
