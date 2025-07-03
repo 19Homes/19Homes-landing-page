@@ -19,7 +19,7 @@ export default function SectionCaption({
           container: ".scroll-container",
           enter: "bottom-=200",
           leave: "top+=200",
-          sync: "play pause reverse reverse",
+          sync: "play play reverse reverse",
         }),
       });
       animate(".p-text", {
@@ -29,7 +29,7 @@ export default function SectionCaption({
           container: ".scroll-container",
           enter: "bottom-=200",
           leave: "top+=200",
-          sync: "play pause reverse reverse",
+          sync: "play play reverse reverse",
         }),
       });
     });
