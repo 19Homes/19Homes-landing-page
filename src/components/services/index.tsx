@@ -3,7 +3,7 @@ import SectionCaption from "@/components/sectionCaption";
 import ServicesCard from "./components/services-card";
 import { ServicesCardsData } from "./constants";
 import { useEffect, useRef } from "react";
-import { animate, createScope, onScroll, utils } from "animejs";
+import { animate, createScope, onScroll, stagger, utils } from "animejs";
 
 export default function Services() {
   const root = useRef(null);
@@ -12,6 +12,7 @@ export default function Services() {
     scope.current = createScope({ root }).add(() => {
       const $imageHolder = utils.$(".service-card-image-holder");
       const $imageCover = utils.$(".image-cover");
+      const $serviceCard = utils.$(".service-card");
       $imageHolder.forEach((holder) => {
         animate(holder, {
           opacity: 1,
@@ -20,7 +21,7 @@ export default function Services() {
           autoplay: onScroll({
             container: ".services-container",
             target: holder,
-            enter: "bottom-=300 top",
+            enter: "bottom-=400 top",
             leave: "top+=300 bottom",
             sync: "play play reverse reverse",
           }),
@@ -39,7 +40,21 @@ export default function Services() {
           autoplay: onScroll({
             container: ".services-container",
             target: `.service-card:nth-child(${index + 1}) .service-card-image-holder`,
-            enter: "bottom-=300 top",
+            enter: "bottom-=400 top",
+            leave: "top+=300 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+      });
+
+      $serviceCard.forEach((_, i) => {
+        animate(`.service-card:nth-child(${i + 1}) .service-letter`, {
+          y: [{ to: "0px", ease: "outQuad", duration: 200 }],
+          delay: stagger(50, { from: "center", start: 800 }),
+          autoplay: onScroll({
+            container: ".services-container",
+            target: `.service-card:nth-child(${i + 1}) .service-card-image-holder`,
+            enter: "bottom-=400 top",
             leave: "top+=300 bottom",
             sync: "play play reverse reverse",
           }),
