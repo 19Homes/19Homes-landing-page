@@ -31,7 +31,7 @@ export default function Features() {
       const $oddCards = utils.$(".card-container:nth-child(odd)");
       $evenCards.forEach((card) => {
         animate(card, {
-          x: [{ from: "80px", ease: "inOutBack(1.70158)", duration: 500 }],
+          x: [{ from: "120px", ease: "inOutBack(1.70158)", duration: 500 }],
           delay: 300,
           opacity: [{ to: 1, ease: "outCirc", duration: 500 }],
           rotate: [{ from: ".25turn", ease: "outBack(1.3)", duration: 300 }],
@@ -45,7 +45,7 @@ export default function Features() {
       });
       $oddCards.forEach((card) => {
         animate(card, {
-          x: [{ from: "-80px", ease: "inOutBack(1.70158)", duration: 500 }],
+          x: [{ from: "-120px", ease: "inOutBack(1.70158)", duration: 500 }],
           opacity: [{ to: 1, ease: "outCirc", duration: 500 }],
           rotate: [{ from: "-.25turn", ease: "outBack(1.3)", duration: 300 }],
           autoplay: onScroll({
@@ -56,25 +56,7 @@ export default function Features() {
           }),
         });
       });
-      //   animate([".card-container:nth-child(even)"], {
-      //     x: [{ from: "80px", ease: "inOutBack(1.70158)", duration: 500 }],
-      //     autoplay: onScroll({
-      //       container: ".features-container",
-      //       enter: "bottom-=300 top",
-      //       leave: "top+=400 bottom",
-      //       sync: "play play reverse reverse",
-      //     }),
-      //   });
-      //   animate(".card-container:nth-child(odd)", {
-      //     x: [{ from: "-80px", ease: "inOutBack(1.70158)", duration: 500 }],
-      //     autoplay: onScroll({
-      //       container: ".features-container",
-      //       enter: "bottom-=300 top",
-      //       leave: "top+=400 bottom",
-      //       sync: "play play reverse reverse",
-      //     }),
-      //   });
-    });
+          });
     return () => scope.current?.revert();
   }, []);
   return (
