@@ -35,6 +35,7 @@ export default function FeaturedProperties() {
         }),
       });
     });
+    return () => scope.current?.revert();
   }, []);
   return (
     <section

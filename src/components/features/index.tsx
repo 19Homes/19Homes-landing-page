@@ -28,6 +28,7 @@ export default function Features() {
         }),
       });
     });
+    return scope.current?.revert();
   }, []);
   return (
     <section
