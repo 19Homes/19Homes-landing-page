@@ -30,7 +30,7 @@ export default function FeaturedProperties() {
         autoplay: onScroll({
           container: ".properties-container",
           enter: "bottom-=400",
-          leave: "top",
+          leave: "top+=400 bottom",
           sync: "play play reverse reverse",
         }),
       });
