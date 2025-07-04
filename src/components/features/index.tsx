@@ -1,7 +1,7 @@
 "use client";
 import { featuresData } from "./constants";
 import FeatureCard from "./components/feature-card";
-import { animate, createScope, onScroll, utils } from "animejs";
+import { animate, createScope, onScroll, stagger, utils } from "animejs";
 import { useEffect, useRef } from "react";
 
 export default function Features() {
@@ -12,13 +12,13 @@ export default function Features() {
       animate(".caption-letter", {
         y: [
           {
-            from: `${utils.random(5, 30)}px`,
-            ease: "inOutBack",
-            duration: 400,
+            from: stagger(["-80px", "80px"], { reversed: true }),
+            ease: "outExpo",
+            duration: 200,
           },
         ],
         opacity: [{ to: 1, ease: "inOut", duration: 300 }],
-        filter: [{ to: "blur(0)", ease: "outQuad", duration: 400 }],
+        filter: [{ to: "blur(0)", ease: "outQuad", duration: 200 }],
         delay: (_, i, l) => (l - i) * 50 + utils.random(-50, 200),
         autoplay: onScroll({
           container: ".features-container",
@@ -27,8 +27,55 @@ export default function Features() {
           sync: "play play reverse reverse",
         }),
       });
+      const $evenCards = utils.$(".card-container:nth-child(even)");
+      const $oddCards = utils.$(".card-container:nth-child(odd)");
+      $evenCards.forEach((card) => {
+        animate(card, {
+          x: [{ from: "80px", ease: "inOutBack(1.70158)", duration: 500 }],
+          delay: 300,
+          opacity: [{ to: 1, ease: "outCirc", duration: 500 }],
+          rotate: [{ from: ".25turn", ease: "outBack(1.3)", duration: 300 }],
+          autoplay: onScroll({
+            container: ".features-container",
+            enter: "bottom-=300 top",
+            leave: "top+=400 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+      });
+      $oddCards.forEach((card) => {
+        animate(card, {
+          x: [{ from: "-80px", ease: "inOutBack(1.70158)", duration: 500 }],
+          opacity: [{ to: 1, ease: "outCirc", duration: 500 }],
+          rotate: [{ from: "-.25turn", ease: "outBack(1.3)", duration: 300 }],
+          autoplay: onScroll({
+            container: ".features-container",
+            enter: "bottom-=300 top",
+            leave: "top+=400 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+      });
+      //   animate([".card-container:nth-child(even)"], {
+      //     x: [{ from: "80px", ease: "inOutBack(1.70158)", duration: 500 }],
+      //     autoplay: onScroll({
+      //       container: ".features-container",
+      //       enter: "bottom-=300 top",
+      //       leave: "top+=400 bottom",
+      //       sync: "play play reverse reverse",
+      //     }),
+      //   });
+      //   animate(".card-container:nth-child(odd)", {
+      //     x: [{ from: "-80px", ease: "inOutBack(1.70158)", duration: 500 }],
+      //     autoplay: onScroll({
+      //       container: ".features-container",
+      //       enter: "bottom-=300 top",
+      //       leave: "top+=400 bottom",
+      //       sync: "play play reverse reverse",
+      //     }),
+      //   });
     });
-    return scope.current?.revert();
+    return () => scope.current?.revert();
   }, []);
   return (
     <section
@@ -37,23 +84,23 @@ export default function Features() {
     >
       <h2 className="font-poppins text-black-100 text-center text-xl font-bold capitalize lg:text-3xl">
         {"why".split("").map((letter, i) => (
-          <span
+          <div
             key={i}
-            className="caption-letter mr-1 sm:mr-2"
+            className="caption-letter mr-0.5 inline-block sm:mr-2"
             style={{ opacity: 0, filter: "blur(8px)" }}
           >
             {letter}
-          </span>
+          </div>
         ))}{" "}
         <span className="text-gold-100">
           {"19Homes".split("").map((letter, i) => (
-            <span
+            <div
               key={i}
-              className="caption-letter mr-1"
+              className="caption-letter mr-0.5 inline-block"
               style={{ opacity: 0, filter: "blur(8px)" }}
             >
               {letter}
-            </span>
+            </div>
           ))}
         </span>
       </h2>
