@@ -22,7 +22,7 @@ export default function Features() {
         delay: (_, i, l) => (l - i) * 50 + utils.random(-50, 200),
         autoplay: onScroll({
           container: ".features-container",
-          enter: "bottom-=200",
+          enter: "bottom-=300",
           leave: "top",
           sync: "play play reverse reverse",
         }),

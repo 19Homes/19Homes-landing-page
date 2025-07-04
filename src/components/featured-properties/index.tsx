@@ -24,7 +24,7 @@ export default function FeaturedProperties() {
         opacity: 1,
         y: "0px",
         scale: 1,
-        delay: stagger(100),
+        delay: stagger(200),
         ease: "inOutBack",
         duration: 800,
         autoplay: onScroll({
