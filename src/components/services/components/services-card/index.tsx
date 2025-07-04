@@ -18,10 +18,11 @@ export default function ServicesCard({ title, description, image }: CardBase) {
           className="object-cover"
         />
         <div
-          className="bg-gold-100 absolute inset-0"
+          className="bg-gold-100 image-cover absolute inset-0"
           style={{
             maskImage:
-              "radial-gradient(circle, #000000 0 100%, rgba(0,0,0,0.75) 0 110%, rgba(0,0,0,0.50) 0 120%, rgba(0,0,0,0.25) 0 130%, rgba(0,0,0,0) 0 140%)",
+              "linear-gradient(to left,#000000 0 100%, rgba(0,0,0,0.9) 0 110%, rgba(0,0,0,0.8) 0 120%, rgba(0,0,0,0.7) 0 130%, rgba(0,0,0,0) 0 140%)",
+            backgroundColor: "black",
           }}
         ></div>
       </div>
@@ -54,7 +55,7 @@ export default function ServicesCard({ title, description, image }: CardBase) {
             ))}
           </p>
         </div>
-        <div className="service-btn" style={{opacity: 0}}>
+        <div className="service-btn" style={{ opacity: 0 }}>
           <Button text="learn more" onclick={() => {}} />
         </div>
       </div>
