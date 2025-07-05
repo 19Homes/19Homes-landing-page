@@ -59,6 +59,30 @@ export default function Services() {
             sync: "play play reverse reverse",
           }),
         });
+        animate(`.service-card:nth-child(${i + 1}) .service-word`, {
+          opacity: [{ to: 1, ease: "outQuad", duration: 50 }],
+          filter: [{ from: "blur(10px)", ease: "outBack", duration: 100 }],
+          delay: stagger(50, { from: "center", start: 1200 }),
+          autoplay: onScroll({
+            container: ".services-container",
+            target: `.service-card:nth-child(${i + 1}) .service-card-image-holder`,
+            enter: "bottom-=400 top",
+            leave: "top+=300 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+        animate(`.service-card:nth-child(${i + 1}) .service-btn`, {
+          opacity: [{ to: 1, ease: "outQuad", duration: 200 }],
+          y: [{ from: "50px", ease: "outBack", duration: 200 }],
+          delay: 1800,
+          autoplay: onScroll({
+            container: ".services-container",
+            target: `.service-card:nth-child(${i + 1}) .service-card-image-holder`,
+            enter: "bottom-=400 top",
+            leave: "top+=300 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
       });
     });
 
