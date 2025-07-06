@@ -16,6 +16,7 @@ export default function Blog() {
       const authenticationStatus = await getAuthUser();
       console.log("AUTHENTICATION STATUS HERE O", authenticationStatus);
       setAuthenticationStatus(!!authenticationStatus);
+      if (authenticationStatus) setErrorMessageState(false);
     }
     checkUserAuthentication();
   }, []);
@@ -34,7 +35,7 @@ export default function Blog() {
           ))}
         </section>
       </section>
-      <div>
+      <div className="flex flex-col items-center gap-3">
         <button
           className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]"
           onClick={() => {
@@ -49,9 +50,9 @@ export default function Blog() {
           view all
         </button>
         {showErrorMessage && (
-          <p>
+          <p className="font-montserrat text-sm font-semibold text-red-500 sm:text-lg">
             Sorry. You need to be signed in to view this page. Please{" "}
-            <Link href="/register">Sign In</Link>
+            <Link href="/register" className="text-blue-800 underline underline-offset-2 font-bold">Sign In</Link>
           </p>
         )}
       </div>
