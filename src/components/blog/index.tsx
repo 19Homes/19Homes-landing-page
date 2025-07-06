@@ -18,8 +18,13 @@ export default function Blog() {
       setAuthenticationStatus(!!authenticationStatus);
       if (authenticationStatus) setErrorMessageState(false);
     }
+    if (showErrorMessage) {
+      setTimeout(() => {
+        setErrorMessageState(false);
+      }, 3000);
+    }
     checkUserAuthentication();
-  }, []);
+  }, [showErrorMessage]);
   return (
     <section className="flex flex-col items-center gap-10 px-6 lg:px-14">
       <section className="w-full flex-col items-center">
@@ -52,7 +57,12 @@ export default function Blog() {
         {showErrorMessage && (
           <p className="font-montserrat text-sm font-semibold text-red-500 sm:text-lg">
             Sorry. You need to be signed in to view this page. Please{" "}
-            <Link href="/register" className="text-blue-800 underline underline-offset-2 font-bold">Sign In</Link>
+            <Link
+              href="/register"
+              className="font-bold text-blue-800 underline underline-offset-2"
+            >
+              Sign In
+            </Link>
           </p>
         )}
       </div>
