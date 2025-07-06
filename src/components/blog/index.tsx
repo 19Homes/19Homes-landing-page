@@ -12,6 +12,7 @@ export default function Blog() {
     useState<boolean>(false);
   const [showErrorMessage, setErrorMessageState] = useState<boolean>(false);
   useEffect(() => {
+    let timeoutID: NodeJS.Timeout;
     async function checkUserAuthentication() {
       const authenticationStatus = await getAuthUser();
       console.log("AUTHENTICATION STATUS HERE O", authenticationStatus);
@@ -19,11 +20,12 @@ export default function Blog() {
       if (authenticationStatus) setErrorMessageState(false);
     }
     if (showErrorMessage) {
-      setTimeout(() => {
+      timeoutID = setTimeout(() => {
         setErrorMessageState(false);
       }, 3000);
     }
     checkUserAuthentication();
+    return () => clearTimeout(timeoutID);
   }, [showErrorMessage]);
   return (
     <section className="flex flex-col items-center gap-10 px-6 lg:px-14">
