@@ -32,8 +32,8 @@ export default function Services() {
           maskImage: [
             {
               to: "linear-gradient(to left, #000000 0 -40%, rgba(0,0,0,0.75) 0 -30%, rgba(0,0,0,0.50) 0 -20%, rgba(0,0,0,0.25) 0 -10%, rgba(0,0,0,0) 0 0%)",
-              ease: "outBack",
-              duration: 800,
+              ease: "inBack",
+              duration: 1000,
             },
           ],
           delay: 500,

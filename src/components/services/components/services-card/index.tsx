@@ -21,8 +21,9 @@ export default function ServicesCard({ title, description, image }: CardBase) {
           className="bg-gold-100 image-cover absolute inset-0"
           style={{
             maskImage:
-              "linear-gradient(to left,#000000 0 100%, rgba(0,0,0,0.9) 0 110%, rgba(0,0,0,0.8) 0 120%, rgba(0,0,0,0.7) 0 130%, rgba(0,0,0,0) 0 140%)",
-            backgroundColor: "black",
+              "linear-gradient(to top,#000000 0 100%, rgba(0,0,0,0.9) 0 110%, rgba(0,0,0,0.8) 0 120%, rgba(0,0,0,0.7) 0 130%, rgba(0,0,0,0) 0 140%)",
+            backgroundColor: 'white',
+            maskSize: '50% 50%',
           }}
         ></div>
       </div>
