@@ -53,7 +53,7 @@ export default function Blog() {
           <p className="font-montserrat text-sm font-semibold text-red-500 sm:text-lg">
             Sorry. You need to be signed in to view this page. Please{" "}
             <Link
-              href="/register"
+              href="/login"
               className="font-bold text-blue-800 underline underline-offset-2"
             >
               Sign In
