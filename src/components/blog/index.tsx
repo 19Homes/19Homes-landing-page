@@ -8,25 +8,25 @@ import { useState, useEffect } from "react";
 import { getAuthUser } from "@/lib/getAuthUser";
 
 export default function Blog() {
-  const [userIsAuthenticated, setAuthenticationStatus] =
-    useState<boolean>(false);
   const [showErrorMessage, setErrorMessageState] = useState<boolean>(false);
   useEffect(() => {
     let timeoutID: NodeJS.Timeout;
-    async function checkUserAuthentication() {
-      const authenticationStatus = await getAuthUser();
-      console.log("AUTHENTICATION STATUS HERE O", authenticationStatus);
-      setAuthenticationStatus(!!authenticationStatus);
-      if (authenticationStatus) setErrorMessageState(false);
-    }
     if (showErrorMessage) {
       timeoutID = setTimeout(() => {
         setErrorMessageState(false);
       }, 3000);
     }
-    checkUserAuthentication();
     return () => clearTimeout(timeoutID);
   }, [showErrorMessage]);
+  async function handleClick() {
+    const checkUserAuthentication = await getAuthUser();
+    if (checkUserAuthentication) {
+      setErrorMessageState(false);
+      redirect("/blogs");
+    } else {
+      setErrorMessageState(true);
+    }
+  }
   return (
     <section className="flex flex-col items-center gap-10 px-6 lg:px-14">
       <section className="w-full flex-col items-center">
@@ -45,14 +45,7 @@ export default function Blog() {
       <div className="flex flex-col items-center gap-3">
         <button
           className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]"
-          onClick={() => {
-            if (userIsAuthenticated) {
-              setErrorMessageState(false);
-              redirect("/blogs");
-            } else {
-              setErrorMessageState(true);
-            }
-          }}
+          onClick={handleClick}
         >
           view all
         </button>
