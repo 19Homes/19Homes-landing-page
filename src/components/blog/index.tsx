@@ -50,7 +50,11 @@ export default function Blog() {
           view all
         </button>
         {showErrorMessage && (
-          <p className="font-montserrat text-sm font-semibold text-red-500 sm:text-lg">
+          <p
+            className="font-montserrat text-sm font-semibold text-red-500 sm:text-lg"
+            aria-live="assertive"
+            role="alert"
+          >
             Sorry. You need to be signed in to view this page. Please{" "}
             <Link
               href="/login"
