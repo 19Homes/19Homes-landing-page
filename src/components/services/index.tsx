@@ -33,10 +33,9 @@ export default function Services() {
             {
               to: "linear-gradient(to left, #000000 0 -40%, rgba(0,0,0,0.75) 0 -30%, rgba(0,0,0,0.50) 0 -20%, rgba(0,0,0,0.25) 0 -10%, rgba(0,0,0,0) 0 0%)",
               ease: "inBack",
-              duration: 1000,
+              duration: 800,
             },
           ],
-          delay: 500,
           autoplay: onScroll({
             container: ".services-container",
             target: `.service-card:nth-child(${index + 1}) .service-card-image-holder`,
