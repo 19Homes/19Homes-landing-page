@@ -7,22 +7,22 @@ export const testimonialCards: TestimonialCard[] = [
   {
     name: "Rasheed Bawa",
     role: "Home owner",
-    text: "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. ",
+    text: "Bold, beautiful, and brilliantly functional—19Homes’ designs are next-level.",
     image: Rasheed,
     stars: 3,
   },
   {
     name: "Lisa Billy",
     role: "Reseller",
-    text: "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. ",
+    text: "Found my dream home in 19 days with 19Homes! 🏡✨ Couldn’t be happier!",
     image: Lisa,
     stars: 4,
   },
   {
     name: "Will Smith",
     role: "Home owner",
-    text: "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. ",
+    text: "Working with 19Homes was a game-changer. Their designs blend creativity with practicality in a way that feels so uniquely ‘me.’ From the first sketch to the final walkthrough, they nailed every detail.",
     image: Will,
-    stars: 3,
+    stars: 4,
   },
 ];
