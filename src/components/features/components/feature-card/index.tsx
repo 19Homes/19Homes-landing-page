@@ -18,7 +18,7 @@ export default function FeatureCard({ title, description, image }: CardBase) {
             {title}
           </h2>
         </div>
-        <p className="text-black-100 font-montserrat font-regular text-center text-[1rem] lg:text-xl">
+        <p className="text-black-100 font-montserrat font-normal text-center text-[1rem] lg:text-xl">
           {description}
         </p>
       </article>
