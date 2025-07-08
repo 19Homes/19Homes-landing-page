@@ -8,25 +8,25 @@ export const ServicesCardsData: CardBase[] = [
   {
     title: "house and land sales",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "We simplify your property journey with expertly selected homes and strategic land packages. Whether you're buying or investing, our end-to-end guidance ensures smart decisions and lasting value.",
     image: sales,
   },
   {
     title: "building",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "From concept to completion, we construct high-quality homes using premium materials and skilled craftsmanship. Transparent processes and fixed timelines deliver your dream home without surprises or stress.",
     image: building,
   },
   {
     title: "architectural design",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "Our architects create custom, innovative designs tailored to your lifestyle. We balance aesthetics, functionality and sustainability to transform your vision into a structurally sound, beautiful reality.",
     image: architecturalDesign,
   },
   {
     title: "interior design",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "We curate cohesive, livable spaces that reflect your personality. From material selection to furniture planning, our designs optimize comfort, flow and visual appeal in every detail.",
     image: interiorDesign,
   },
 ];
