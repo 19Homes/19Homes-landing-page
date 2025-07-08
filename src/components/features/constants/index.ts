@@ -10,37 +10,37 @@ export const featuresData: CardBase[] = [
   {
     title: "our commitment",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "We’re dedicated to integrity, quality, and your vision—delivering exceptional homes and designs that stand the test of time.",
     image: commitment,
   },
   {
     title: "our expertise",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "With deep market knowledge and creative innovation, we craft spaces that blend functionality, beauty, and lasting value.",
     image: expertise,
   },
   {
     title: "customer satisfaction",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "Your dream home is our mission. We listen, adapt, and exceed expectations—because your happiness defines our success.",
     image: satisfaction,
   },
   {
     title: "exceptional service",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "From first consult to final keys, we provide seamless, personalized support—making your journey smooth and rewarding.",
     image: service,
   },
   {
     title: "personalized advice",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "Tailored solutions for your unique needs. We don’t just sell homes—we build partnerships for your future and offer wisdom for excellent choice making.",
     image: advice,
   },
   {
     title: "investment opportunites",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nisl enim tincidunt iaculis risus porttitor metus purus. Scelerisque at faucibus diam faucibus ultrices dignissim natoque mattis mattis. ",
+      "Smart and profitable opportunities to grow your income and multiply your wealth. We offer multiple avenues for financial growth and a promise of security and expansion.",
     image: opportunities,
   },
 ];
