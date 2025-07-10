@@ -2,6 +2,7 @@
 import { CardBase } from "@/types";
 import Image from "next/image";
 import Button from "@/components/button";
+import { redirect } from "next/navigation";
 
 export default function ServicesCard({ title, description, image }: CardBase) {
   return (
@@ -57,7 +58,9 @@ export default function ServicesCard({ title, description, image }: CardBase) {
           </p>
         </div>
         <div className="service-btn" style={{ opacity: 0 }}>
-          <Button text="learn more" onclick={() => {}} />
+          <Button text="Reach Out" onclick={() => {
+            redirect('/contact')
+          }} />
         </div>
       </div>
     </article>
