@@ -35,12 +35,12 @@ export default function Blog() {
       const $blogCards = utils.$(".blog-card");
       $blogCards.forEach((_, index) => {
         animate(`.blog-card svg:nth-child(${index + 1}) circle`, {
-          r: [{ to: 450, ease: "outBack", duration: 3000 }],
+          r: [{ to: 450, ease: "linear", duration: 1500 }],
           autoplay: onScroll({
             container: ".blog-parent",
             target: `.blog-card:nth-child(${index + 1})`,
-            enter: "bottom-=400 top",
-            leave: "top+=200 bottom",
+            enter: "bottom-=250 top",
+            leave: "top+=400 bottom",
             sync: "play play reverse reverse",
           }),
         });
