@@ -22,7 +22,7 @@ export default function BlogCard({
         <filter id="displacementFilter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.06"
+            baseFrequency="0.08"
             numOctaves="10"
             result="turbulence"
           />
@@ -53,7 +53,7 @@ export default function BlogCard({
         <filter id="displacementFilter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.06"
+            baseFrequency="0.08"
             numOctaves="10"
             result="turbulence"
           />
@@ -84,7 +84,7 @@ export default function BlogCard({
         <filter id="displacementFilter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.06"
+            baseFrequency="0.08"
             numOctaves="10"
             result="turbulence"
           />
@@ -139,9 +139,9 @@ export default function BlogCard({
               by 19homes
             </p>
           </section>
-          <p className="font-poppins text-black-75 text-[10px] font-normal lg:text-sm">
+          {/* <p className="font-poppins text-black-75 text-[10px] font-normal lg:text-sm">
             7 comments
-          </p>
+          </p> */}
         </div>
       </div>
     </article>
