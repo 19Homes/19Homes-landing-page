@@ -55,6 +55,18 @@ export default function Blog() {
             sync: "play play reverse reverse",
           }),
         });
+        animate(`.blog-card:nth-child(${index + 1}) .blog-text`, {
+          opacity: [{ to: 1, ease: "inQuad", duration: 300 }],
+          x: [{ from: "50px", ease: "outBack(5)", duration: 500 }],
+          delay: 500,
+          autoplay: onScroll({
+            container: ".blog-parent",
+            target: `.blog-card:nth-child(${index + 1}) .text-target`,
+            enter: "bottom-=300 top",
+            leave: "top+=400 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
       });
     });
     return () => scope.current?.revert();
