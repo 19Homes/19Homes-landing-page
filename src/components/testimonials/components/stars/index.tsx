@@ -13,7 +13,7 @@ export default function Stars({ stars }: { stars: number }) {
             alt={`${index}-star rating`}
             width={12}
             height={12}
-            className="size-2.5 lg:size-3"
+            className="star size-2.5 lg:size-3"
           />
         ) : (
           <Image
@@ -22,7 +22,7 @@ export default function Stars({ stars }: { stars: number }) {
             alt="star not rated"
             width={12}
             height={12}
-            className="size-2.5 lg:size-3"
+            className="star size-2.5 lg:size-3"
           />
         ),
       )}
