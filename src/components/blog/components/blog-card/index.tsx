@@ -118,7 +118,7 @@ export default function BlogCard({
           mask: `url(#${mask})`,
         }}
       />
-      <div className="flex w-full flex-col gap-1.5 lg:gap-8">
+      <div className="flex w-full flex-col gap-1.5 lg:gap-8 text-target">
         <h3 className="font-poppins text-black-100 text-lg font-bold capitalize lg:text-2xl">
           {title.split(" ").map((word, index) => (
             <div key={index} className="mr-1.5 inline-block">
@@ -138,10 +138,16 @@ export default function BlogCard({
             </div>
           ))}
         </h3>
-        <p className="font-montserrat text-black-100 blog-text text-[15px] font-medium lg:text-xl">
+        <p
+          className="font-montserrat text-black-100 blog-text text-[15px] font-medium lg:text-xl"
+          style={{ opacity: 0 }}
+        >
           {text}
         </p>
-        <div className="flex w-full items-center justify-between blog-detail">
+        <div
+          className="blog-detail flex w-full items-center justify-between"
+          style={{ opacity: 0 }}
+        >
           <section className="flex items-center gap-2">
             <Image
               src="/blog-section/19HomesIcon.svg"
