@@ -120,12 +120,28 @@ export default function BlogCard({
       />
       <div className="flex w-full flex-col gap-1.5 lg:gap-8">
         <h3 className="font-poppins text-black-100 text-lg font-bold capitalize lg:text-2xl">
-          {title}
+          {title.split(" ").map((word, index) => (
+            <div key={index} className="mr-1.5 inline-block">
+              {word.split("").map((letter, index) => (
+                <div
+                  key={index}
+                  className="mr-0.5 inline-block overflow-hidden"
+                >
+                  <div
+                    className="title-letter"
+                    style={{ transform: "translateX(-100%)" }}
+                  >
+                    {letter}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
         </h3>
-        <p className="font-montserrat text-black-100 text-[15px] font-medium lg:text-xl">
+        <p className="font-montserrat text-black-100 blog-text text-[15px] font-medium lg:text-xl">
           {text}
         </p>
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between blog-detail">
           <section className="flex items-center gap-2">
             <Image
               src="/blog-section/19HomesIcon.svg"
