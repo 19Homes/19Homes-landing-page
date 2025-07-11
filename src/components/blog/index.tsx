@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { getAuthUser } from "@/lib/getAuthUser";
-import { animate, createScope, onScroll, utils } from "animejs";
+import { animate, createScope, onScroll, stagger, utils } from "animejs";
 
 export default function Blog() {
   const [showErrorMessage, setErrorMessageState] = useState<boolean>(false);
@@ -39,7 +39,18 @@ export default function Blog() {
           autoplay: onScroll({
             container: ".blog-parent",
             target: `.blog-card:nth-child(${index + 1})`,
-            enter: "bottom-=250 top",
+            enter: "bottom-=300 top",
+            leave: "top+=400 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+        animate(`.blog-card:nth-child(${index + 1}) .title-letter`, {
+          x: [{ to: 0, ease: "outBack(5)", duration: 300 }],
+          delay: stagger(20),
+          autoplay: onScroll({
+            container: ".blog-parent",
+            target: `.blog-card:nth-child(${index + 1}) .text-target`,
+            enter: "bottom-=300 top",
             leave: "top+=400 bottom",
             sync: "play play reverse reverse",
           }),
