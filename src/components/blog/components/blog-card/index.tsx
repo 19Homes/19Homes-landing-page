@@ -4,13 +4,15 @@ export default function BlogCard({
   source,
   title,
   text,
+  mask,
 }: {
   source: StaticImageData;
   title: string;
   text: string;
+  mask: string;
 }) {
   return (
-    <article className="flex w-[min(100%,342px)] items-center flex-col gap-2.5 lg:w-[452px]">
+    <article className="blog-card flex w-[min(100%,342px)] flex-col items-center gap-2.5 lg:w-[452px]">
       <svg
         width="0"
         height="0"
@@ -20,23 +22,85 @@ export default function BlogCard({
         <filter id="displacementFilter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.07"
-            numOctaves="2"
+            baseFrequency="0.06"
+            numOctaves="10"
             result="turbulence"
           />
           <feDisplacementMap
             in2="turbulence"
             in="SourceGraphic"
-            scale="2500"
-            xChannelSelector="A"
-            yChannelSelector="A"
+            scale="80"
+            xChannelSelector="R"
+            yChannelSelector="G"
           />
         </filter>
-        <mask id="circle-mask">
+        <mask id="circle-mask1">
           <circle
             cx="100"
             cy="100"
-            r="50"
+            r="0"
+            fill="white"
+            filter="url(#displacementFilter)"
+          />
+        </mask>
+      </svg>
+      <svg
+        width="0"
+        height="0"
+        viewBox="0 0 220 220"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.06"
+            numOctaves="10"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in2="turbulence"
+            in="SourceGraphic"
+            scale="80"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        <mask id="circle-mask2">
+          <circle
+            cx="100"
+            cy="100"
+            r="0"
+            fill="white"
+            filter="url(#displacementFilter)"
+          />
+        </mask>
+      </svg>
+      <svg
+        width="0"
+        height="0"
+        viewBox="0 0 220 220"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.06"
+            numOctaves="10"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in2="turbulence"
+            in="SourceGraphic"
+            scale="80"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        <mask id="circle-mask3">
+          <circle
+            cx="100"
+            cy="100"
+            r="0"
             fill="white"
             filter="url(#displacementFilter)"
           />
@@ -51,7 +115,7 @@ export default function BlogCard({
         className="h-[234px] w-full object-cover lg:h-[309px] lg:w-[452px]"
         placeholder="blur"
         style={{
-          mask: "url(#circle-mask)",
+          mask: `url(#${mask})`,
         }}
       />
       <div className="flex w-full flex-col gap-1.5 lg:gap-8">
