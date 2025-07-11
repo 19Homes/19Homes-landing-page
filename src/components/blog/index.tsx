@@ -4,8 +4,9 @@ import BlogCard from "./components/blog-card";
 import SectionCaption from "../sectionCaption";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getAuthUser } from "@/lib/getAuthUser";
+import { animate, createScope, onScroll, utils } from "animejs";
 
 export default function Blog() {
   const [showErrorMessage, setErrorMessageState] = useState<boolean>(false);
@@ -27,17 +28,41 @@ export default function Blog() {
       setErrorMessageState(true);
     }
   }
+  const root = useRef(null);
+  const scope = useRef<ReturnType<typeof createScope> | null>(null);
+  useEffect(() => {
+    scope.current = createScope({ root }).add(() => {
+      const $blogCards = utils.$(".blog-card");
+      $blogCards.forEach((_, index) => {
+        animate(`.blog-card svg:nth-child(${index + 1}) circle`, {
+          r: [{ to: 450, ease: "outBack", duration: 3000 }],
+          autoplay: onScroll({
+            container: ".blog-parent",
+            target: `.blog-card:nth-child(${index + 1})`,
+            enter: "bottom-=400 top",
+            leave: "top+=200 bottom",
+            sync: "play play reverse reverse",
+          }),
+        });
+      });
+    });
+    return () => scope.current?.revert();
+  }, []);
   return (
-    <section className="flex flex-col items-center gap-10 px-6 lg:px-14">
-      <section className="w-full flex-col items-center">
+    <section
+      ref={root}
+      className="blog-parent flex flex-col items-center gap-10 px-6 lg:px-14"
+    >
+      <section className="blog-card-holder w-full flex-col items-center">
         <SectionCaption headText="Our Blog" subText="See our latest articles" />
-        <section className="flex w-full flex-wrap justify-center gap-6 gap-y-4 lg:gap-y-10">
+        <section className="parent flex w-full flex-wrap justify-center gap-6 gap-y-4 lg:gap-y-10">
           {blogPosts.map((post, index) => (
             <BlogCard
               key={index}
               title={post.title}
               source={post.image}
               text={post.description}
+              mask={`circle-mask${index + 1}`}
             />
           ))}
         </section>
