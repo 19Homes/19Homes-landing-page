@@ -45,7 +45,7 @@ export default function Hero() {
         x: [
           {
             from: "3rem",
-            ease: 'outElastic',
+            ease: "outElastic",
             duration: 300,
           },
         ],
@@ -148,6 +148,7 @@ export default function Hero() {
             alt="A sophisticated building"
             fill
             placeholder="blur"
+            priority
           />
         </div>
         <div
@@ -158,6 +159,7 @@ export default function Hero() {
             alt="A sophisticated building"
             fill
             placeholder="blur"
+            priority
           />
         </div>
         <div
@@ -168,6 +170,7 @@ export default function Hero() {
             alt="A sophisticated building"
             fill
             placeholder="blur"
+            priority
           />
         </div>
         <div className="border-gold-25 image-border absolute top-[50%] left-[50%] h-[279px] w-[273px] translate-x-[-50%] translate-y-[-50%] rounded-[15px] border-[5px] border-dashed opacity-0 lg:h-[562px] lg:w-[551px] lg:rounded-4xl lg:border-10"></div>
