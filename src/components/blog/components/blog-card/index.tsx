@@ -10,7 +10,7 @@ export default function BlogCard({
   text: string;
 }) {
   return (
-    <article className="flex w-[min(100%,342px)] flex-col gap-2.5 lg:w-[452px]">
+    <article className="flex w-[min(100%,342px)] items-center flex-col gap-2.5 lg:w-[452px]">
       <svg
         width="0"
         height="0"
@@ -20,20 +20,27 @@ export default function BlogCard({
         <filter id="displacementFilter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.9"
+            baseFrequency="0.07"
             numOctaves="2"
             result="turbulence"
           />
           <feDisplacementMap
             in2="turbulence"
             in="SourceGraphic"
-            scale="200"
+            scale="2500"
             xChannelSelector="A"
             yChannelSelector="A"
           />
         </filter>
-
-        <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
+        <mask id="circle-mask">
+          <circle
+            cx="100"
+            cy="100"
+            r="50"
+            fill="white"
+            filter="url(#displacementFilter)"
+          />
+        </mask>
       </svg>
 
       <Image
@@ -44,8 +51,7 @@ export default function BlogCard({
         className="h-[234px] w-full object-cover lg:h-[309px] lg:w-[452px]"
         placeholder="blur"
         style={{
-          filter: "url(#displacementFilter)",
-          transition: "all 300s ease",
+          mask: "url(#circle-mask)",
         }}
       />
       <div className="flex w-full flex-col gap-1.5 lg:gap-8">
