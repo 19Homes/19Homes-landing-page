@@ -11,28 +11,43 @@ export default function SectionCaption({
   const root = useRef(null);
   const scope = useRef<ReturnType<typeof createScope> | null>(null);
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
-      animate(".head-text", {
-        y: [{ to: "0", ease: createSpring({ stiffness: 100, damping: 25 }) }],
-        delay: stagger(150),
-        autoplay: onScroll({
-          container: ".scroll-container",
-          enter: "bottom-=200",
-          leave: "top+=200",
-          sync: "play play reverse reverse",
-        }),
+    animation();
+    function animation() {
+      requestAnimationFrame(() => {
+        scope.current = createScope({ root }).add(() => {
+          animate(".head-text", {
+            y: [
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 100, damping: 25 }),
+              },
+            ],
+            delay: stagger(100),
+            autoplay: onScroll({
+              container: ".scroll-container",
+              enter: "bottom-=200",
+              leave: "top+=200",
+              sync: "play play reverse reverse",
+            }),
+          });
+          animate(".p-text", {
+            y: [
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 100, damping: 25 }),
+              },
+            ],
+            delay: stagger(150, { start: 450 }),
+            autoplay: onScroll({
+              container: ".scroll-container",
+              enter: "bottom-=200",
+              leave: "top+=200",
+              sync: "play play reverse reverse",
+            }),
+          });
+        });
       });
-      animate(".p-text", {
-        y: [{ to: "0", ease: createSpring({ stiffness: 100, damping: 25 }) }],
-        delay: stagger(150, { start: 450 }),
-        autoplay: onScroll({
-          container: ".scroll-container",
-          enter: "bottom-=200",
-          leave: "top+=200",
-          sync: "play play reverse reverse",
-        }),
-      });
-    });
+    }
 
     return () => scope.current?.revert();
   }, []);
