@@ -11,91 +11,117 @@ import { useEffect, useRef } from "react";
 export default function Hero() {
   const root = useRef(null);
   const scope = useRef<ReturnType<typeof createScope> | null>(null);
-
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
-      animate(".hero-text", {
-        scale: [
-          { from: 0, ease: "outCirc", duration: 150 },
-          { to: 1.15, ease: "in", duration: 150 },
-          { to: 1, ease: createSpring({ stiffness: 300 }), duration: 200 },
-        ],
-        opacity: [{ to: 1, ease: "out", duration: 300 }],
-        y: [
-          { from: "1rem", ease: "inQuad", duration: 150 },
-          { to: "-1.3rem", ease: "in", duration: 150 },
-          { to: "0", ease: createSpring({ stiffness: 300 }), duration: 100 },
-        ],
-        delay: stagger(150),
+    if (document.readyState === "complete") {
+      console.log("REady");
+    } else {
+      console.log("OH REAFLOP. IT REALLY IS SO BAD FOR YOU MY FRIEND");
+    }
+    animationsOnPageLoad();
+    function animationsOnPageLoad() {
+      requestAnimationFrame(() => {
+        scope.current = createScope({ root }).add(() => {
+          animate(".hero-text", {
+            scale: [
+              { to: 1.15, ease: "in", duration: 150 },
+              {
+                to: 1,
+                ease: createSpring({ stiffness: 300 }),
+                duration: 200,
+              },
+            ],
+            opacity: [{ to: 1, ease: "out", duration: 300 }],
+            y: [
+              { to: "-1.3rem", ease: "in", duration: 150 },
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 300 }),
+                duration: 100,
+              },
+            ],
+            delay: stagger(150),
+          });
+          animate(".hero-subtext", {
+            scale: [
+              { to: 0.9, ease: "inQuad", duration: 100 },
+              { to: 1, ease: "in", duration: 300 },
+            ],
+            opacity: [{ to: 1, ease: "inCubic", duration: 300 }],
+            x: [
+              { to: "2rem", ease: "inQuad", duration: 100 },
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 300 }),
+                duration: 300,
+              },
+            ],
+            delay: 600,
+          });
+          animate(".hero-btn", {
+            opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
+            x: [
+              {
+                to: "0px",
+                ease: "outBounce",
+                duration: 300,
+              },
+            ],
+            delay: 500,
+          });
+          animate(".image-border", {
+            scale: [
+              {
+                to: 1,
+                ease: createSpring({ stiffness: 200 }),
+                duration: 500,
+              },
+            ],
+            opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
+            delay: 400,
+          });
+          animate(".image-one", {
+            scale: [{ to: 1, ease: "inOutQuad", duration: 400 }],
+            opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+            x: [
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 200 }),
+                duration: 400,
+              },
+            ],
+            delay: 800,
+          });
+          animate(".image-two", {
+            scale: [{ to: 1, ease: "inOutQuad", duration: 400 }],
+            opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+            x: [
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 200 }),
+                duration: 400,
+              },
+            ],
+            delay: 1000,
+          });
+          animate(".image-three", {
+            scale: [{ to: 1, ease: "inOutQuad", duration: 400 }],
+            opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
+            y: [
+              {
+                to: "0",
+                ease: createSpring({ stiffness: 200 }),
+                duration: 400,
+              },
+            ],
+            delay: 1200,
+          });
+        });
       });
-      animate(".hero-subtext", {
-        scale: [
-          { to: 0.9, ease: "inQuad", duration: 100 },
-          { to: 1, ease: "in", duration: 300 },
-        ],
-        opacity: [{ to: 1, ease: "inCubic", duration: 300 }],
-        x: [
-          { to: "2rem", ease: "inQuad", duration: 100 },
-          { to: "0", ease: createSpring({ stiffness: 300 }), duration: 300 },
-        ],
-        delay: 600,
-      });
-      animate(".hero-btn", {
-        opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
-        x: [
-          {
-            from: "3rem",
-            ease: "outElastic",
-            duration: 300,
-          },
-        ],
-        delay: 500,
-      });
-      animate(".image-border", {
-        scale: [
-          { from: 0.6, ease: createSpring({ stiffness: 200 }), duration: 500 },
-        ],
-        opacity: [{ to: 1, ease: "inOutQuad", duration: 300 }],
-        delay: 400,
-      });
-      animate(".image-one", {
-        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
-        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
-        x: [
-          {
-            from: "3rem",
-            ease: createSpring({ stiffness: 200 }),
-            duration: 400,
-          },
-        ],
-        delay: 800,
-      });
-      animate(".image-two", {
-        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
-        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
-        x: [
-          {
-            from: "-3rem",
-            ease: createSpring({ stiffness: 200 }),
-            duration: 400,
-          },
-        ],
-        delay: 1000,
-      });
-      animate(".image-three", {
-        scale: [{ from: 0.9, ease: "inOutQuad", duration: 400 }],
-        opacity: [{ to: 1, ease: "inOutSine", duration: 300 }],
-        y: [
-          {
-            from: "-3rem",
-            ease: createSpring({ stiffness: 200 }),
-            duration: 400,
-          },
-        ],
-        delay: 1200,
-      });
-    });
-    return () => scope.current?.revert();
+    }
+
+    return () => {
+      scope.current?.revert();
+    };
   }, []);
   function redirectToRegister() {
     redirect("/register");
@@ -108,17 +134,31 @@ export default function Hero() {
       <div className="flex w-full flex-col items-center gap-8 lg:items-start">
         <div className="flex flex-col items-center gap-6 lg:items-start">
           <h1 className="font-poppins text-black-100 max-w-prose text-center text-5xl leading-[51px] font-bold tracking-[4%] uppercase md:text-[64px] md:leading-[80px] lg:text-left">
-            <div className="hero-text mr-2 inline-block opacity-0">your</div>{" "}
+            <div
+              className="hero-text mr-2 inline-block opacity-0"
+              style={{ transform: "scale(0) translateY(16px)" }}
+            >
+              your
+            </div>{" "}
             <span className="text-gold-100">
-              <div className="hero-text mr-2 inline-block opacity-0">
+              <div
+                className="hero-text mr-2 inline-block opacity-0"
+                style={{ transform: "scale(0) translateY(16px)" }}
+              >
                 perfect
               </div>{" "}
-              <div className="hero-text mr-2 inline-block opacity-0">home</div>
+              <div
+                className="hero-text mr-2 inline-block opacity-0"
+                style={{ transform: "scale(0) translateY(16px)" }}
+              >
+                home
+              </div>
             </span>{" "}
             {["is", "our", "goal"].map((word, index) => (
               <div
                 key={index}
                 className="hero-text mr-2.5 inline-block opacity-0"
+                style={{ transform: "scale(0) translateY(16px)" }}
               >
                 {word + " "}
               </div>
@@ -131,7 +171,8 @@ export default function Hero() {
           </p>
         </div>
         <button
-          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 hero-btn w-fit cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white opacity-0 transition duration-300 hover:shadow-[3px_5px_10px_#0000007f]"
+          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 hero-btn w-fit cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white transition duration-300 hover:shadow-[3px_5px_10px_#0000007f]"
+          style={{ opacity: 0, transform: "translateX(3rem)" }}
           onClick={redirectToRegister}
         >
           Get Started
@@ -141,7 +182,8 @@ export default function Hero() {
         className={`relative h-[308px] w-full lg:h-[620px] ${styles.imageContainer}`}
       >
         <div
-          className={`${styles.imageBox} ${styles.imageBoxOne} image-one opacity-0`}
+          className={`${styles.imageBox} ${styles.imageBoxOne} image-one`}
+          style={{ opacity: 0, transform: "scale(0.9) translateX(3rem)" }}
         >
           <Image
             src={image1}
@@ -152,7 +194,8 @@ export default function Hero() {
           />
         </div>
         <div
-          className={`${styles.imageBox} ${styles.imageBoxTwo} image-two opacity-0`}
+          className={`${styles.imageBox} ${styles.imageBoxTwo} image-two`}
+          style={{ opacity: 0, transform: "scale(0.9) translateX(-3rem)" }}
         >
           <Image
             src={image2}
@@ -163,7 +206,8 @@ export default function Hero() {
           />
         </div>
         <div
-          className={`${styles.imageBox} ${styles.imageBoxThree} image-three opacity-0`}
+          className={`${styles.imageBox} ${styles.imageBoxThree} image-three`}
+          style={{ opacity: 0, transform: "scale(0.9) translateY(-3rem)" }}
         >
           <Image
             src={image3}
@@ -173,7 +217,10 @@ export default function Hero() {
             priority
           />
         </div>
-        <div className="border-gold-25 image-border absolute top-[50%] left-[50%] h-[279px] w-[273px] translate-x-[-50%] translate-y-[-50%] rounded-[15px] border-[5px] border-dashed opacity-0 lg:h-[562px] lg:w-[551px] lg:rounded-4xl lg:border-10"></div>
+        <div
+          className="border-gold-25 image-border absolute top-[50%] left-[50%] h-[279px] w-[273px] translate-x-[-50%] translate-y-[-50%] rounded-[15px] border-[5px] border-dashed lg:h-[562px] lg:w-[551px] lg:rounded-4xl lg:border-10"
+          style={{ opacity: 0, transform: "scale(0.6)" }}
+        ></div>
       </div>
     </section>
   );
