@@ -9,32 +9,38 @@ export default function FeaturedProperties() {
   const root = useRef(null);
   const scope = useRef<ReturnType<typeof createScope> | null>(null);
   useEffect(() => {
-    scope.current = createScope({ root }).add(() => {
-      animate(".background-section", {
-        opacity: [{ to: 1, ease: "outCirc", duration: 300 }],
-        scale: [{ to: 1, ease: "inOutBack", duration: 400 }],
-        autoplay: onScroll({
-          container: ".properties-container",
-          enter: "bottom-=400",
-          leave: "top",
-          sync: "play",
-        }),
+    animations();
+    function animations() {
+      requestAnimationFrame(() => {
+        scope.current = createScope({ root }).add(() => {
+          animate(".background-section", {
+            opacity: [{ to: 1, ease: "outCirc", duration: 300 }],
+            scale: [{ to: 1, ease: "inOutBack", duration: 400 }],
+            autoplay: onScroll({
+              container: ".properties-container",
+              enter: "bottom-=400",
+              leave: "top",
+              sync: "play",
+            }),
+          });
+          animate(".property-card", {
+            opacity: 1,
+            y: "0px",
+            scale: 1,
+            delay: stagger(200),
+            ease: "inOutBack",
+            duration: 800,
+            autoplay: onScroll({
+              container: ".properties-container",
+              enter: "bottom-=400",
+              leave: "top+=400 bottom",
+              sync: "play play reverse reverse",
+            }),
+          });
+        });
       });
-      animate(".property-card", {
-        opacity: 1,
-        y: "0px",
-        scale: 1,
-        delay: stagger(200),
-        ease: "inOutBack",
-        duration: 800,
-        autoplay: onScroll({
-          container: ".properties-container",
-          enter: "bottom-=400",
-          leave: "top+=400 bottom",
-          sync: "play play reverse reverse",
-        }),
-      });
-    });
+    }
+
     return () => scope.current?.revert();
   }, []);
   return (
