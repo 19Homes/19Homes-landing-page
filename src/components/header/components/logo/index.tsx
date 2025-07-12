@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../../../../../public/19Homes-icon.png";
 import { animate, createScope } from "animejs";
 import { useEffect, useRef } from "react";
+import logo1 from '../../../../../public/19Homes-icon.svg'
 export default function Logo() {
   const scope = useRef<ReturnType<typeof createScope> | null>(null);
   const root = useRef(null);
@@ -19,14 +20,15 @@ export default function Logo() {
   return (
     <div ref={root} className="mr-auto">
       <Image
-        src="/19Homes-icon.svg"
+        src={logo1}
         height={56}
         width={142}
         alt="19 Homes Logo"
         className="logo hidden opacity-0 sm:block"
+        priority
       />
       <div className="logo relative h-6 w-7.5 opacity-0 sm:hidden">
-        <Image fill src={logo} alt="19Homes logo" />
+        <Image fill src={logo} alt="19Homes logo" priority />
       </div>
     </div>
   );
