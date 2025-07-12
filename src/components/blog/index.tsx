@@ -93,6 +93,17 @@ export default function Blog() {
           }),
         });
       });
+      animate(".view-all", {
+        opacity: [{ to: 1, ease: "outQuad", duration: 300 }],
+        y: [{ to: "0px", ease: "linear", duration: 300 }],
+        autoplay: onScroll({
+          container: ".blog-parent",
+          target: ".blog-card-holder",
+          enter: "bottom-=300 top",
+          leave: "top+=400 bottom",
+          sync: "play play reverse reverse",
+        }),
+      });
     });
     return () => scope.current?.revert();
   }, []);
@@ -115,9 +126,10 @@ export default function Blog() {
           ))}
         </section>
       </section>
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-3 btn-target">
         <button
-          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]"
+          className="bg-gold-100 font-montserrat hover:bg-gold-75 hover:text-black-100 view-all cursor-pointer rounded-sm px-6 py-4 text-sm font-bold text-white capitalize duration-200 hover:shadow-[3px_5px_10px_#0000007f]"
+          style={{ opacity: 0, transform: "translateY(70px)" }}
           onClick={handleClick}
         >
           view all
@@ -131,7 +143,7 @@ export default function Blog() {
             Sorry. You need to be signed in to view this page. Please{" "}
             <Link
               href="/login"
-              className="font-bold text-blue-800 underline underline-offset-2"
+              className="error font-bold text-blue-800 underline underline-offset-2"
             >
               Sign In
             </Link>
