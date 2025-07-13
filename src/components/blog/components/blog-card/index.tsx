@@ -119,7 +119,7 @@ export default function BlogCard({
         }}
       />
       <div className="flex w-full flex-col gap-1.5 lg:gap-8 text-target">
-        <h3 className="font-poppins text-black-100 text-lg font-bold capitalize lg:text-2xl">
+        <h3 className="font-poppins text-black-100 text-lg font-bold lg:text-2xl">
           {title.split(" ").map((word, index) => (
             <div key={index} className="mr-1.5 inline-block">
               {word.split("").map((letter, index) => (
