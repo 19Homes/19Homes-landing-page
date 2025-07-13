@@ -22,7 +22,7 @@ export default function Blog() {
     if (showErrorMessage) {
       timeoutID = setTimeout(() => {
         setErrorMessageState(false);
-      }, 3000);
+      }, 10000);
     }
     return () => clearTimeout(timeoutID);
   }, [showErrorMessage]);
