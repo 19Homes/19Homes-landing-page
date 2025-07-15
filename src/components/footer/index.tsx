@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { useCallback } from "react";
 import FooterMainBlock from "./components/footer-main-block";
 import styles from "./styles/styles.module.css";
-import { animate, createScope } from "animejs";
+import { animate, createScope, createSpring, stagger } from "animejs";
 import { useEffect, useRef } from "react";
 export default function Footer() {
   const root = useRef(null);
@@ -13,6 +13,11 @@ export default function Footer() {
       animate(".text-and-logo", {
         opacity: [{ to: 1, ease: "outQuad", duration: 500 }],
         gap: [{ from: "100px", ease: "outBack", duration: 500 }],
+      });
+      animate(".footer-item, .footer-caption", {
+        opacity: [{ to: 1, ease: "inOutCirc", duration: 200 }],
+        x: [{ to: "0px", ease: createSpring({stiffness: 400, velocity: 5, damping: 10}), duration: 200 }],
+        delay: stagger(50),
       });
     });
 
