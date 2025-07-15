@@ -48,13 +48,13 @@ export default function Footer() {
         scale: [
           {
             to: 1,
-            ease: createSpring({ stiffness: 400 }),
+            ease: createSpring({ stiffness: 200 }),
             duration: 5000,
           },
         ],
         autoplay: onScroll({
           container: ".footer",
-          enter: "bottom-=100 top",
+          enter: "bottom-=50 top",
           leave: "top+=500 bottom",
           sync: "play play reverse reverse",
         }),
