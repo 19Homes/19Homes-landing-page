@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import styles from "./styles/styles.module.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { animate, createScope, createSpring, onScroll, stagger } from "animejs";
+import { addSubscriber } from "@/actions/auth";
+import { cn } from "@/utils/classnames";
 
 export default function Newsletter() {
   const root = useRef(null);
@@ -25,6 +27,18 @@ export default function Newsletter() {
 
     return () => scope.current?.revert();
   }, []);
+  const [subscriptionFeedback, setSubscriptionFeedback] = useState<{
+    success: boolean;
+    message: string;
+  }>({
+    success: false,
+    message: "",
+  });
+  const [email, setEmail] = useState("");
+  const handleFormSubmit = async () => {
+    const response = await addSubscriber(email);
+    setSubscriptionFeedback(response);
+  };
   return (
     <section
       ref={root}
@@ -45,25 +59,49 @@ export default function Newsletter() {
           offers and other goodies we have in stock for you.
         </p>
       </div>
-      <form className="flex h-15 flex-col items-center justify-between md:h-[203px]">
-        <div
-          className="outline-black-100 raise flex h-[25px] w-[min(220px,90%)] items-center gap-1 rounded-[8px] bg-[#fffdfd] px-[6px] py-[8px] shadow-[0_4px_4px_rgba(0,0,0,0.25)] has-[input:focus]:outline-2 md:h-[98px] md:w-[min(858px,90%)] md:gap-6 md:rounded-4xl md:px-[27px] md:py-[33px] md:has-[input:focus]:outline-4"
-          style={{ opacity: 0, transform: "translateY(50px)" }}
-        >
-          <Image
-            src="/newsletter/e-mail.svg"
-            alt="email"
-            aria-hidden="true"
-            height={32}
-            width={32}
-            className="size-2 md:size-8"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="text-black-100 font-montserrat placeholder:text-black-50 placehoder:font-normal h-full w-full pl-1.5 text-[8px] font-medium focus:outline-white md:text-xl"
-          />
+      <form
+        className="flex h-15 flex-col items-center justify-between md:h-[203px]"
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleFormSubmit();
+        }}
+      >
+        <div className="raise mb-2 flex w-[min(220px,90%)] flex-col items-center gap-2 md:w-[min(858px,90%)]">
+          <div
+            className="outline-black-100 raise flex h-[25px] w-full items-center gap-1 rounded-[8px] bg-[#fffdfd] px-[6px] py-[8px] shadow-[0_4px_4px_rgba(0,0,0,0.25)] has-[input:focus]:outline-2 md:h-[98px] md:gap-6 md:rounded-4xl md:px-[27px] md:py-[33px] md:has-[input:focus]:outline-4"
+            style={{ opacity: 0, transform: "translateY(50px)" }}
+          >
+            <Image
+              src="/newsletter/e-mail.svg"
+              alt="email"
+              aria-hidden="true"
+              height={32}
+              width={32}
+              className="size-2 md:size-8"
+            />
+            <input
+              type="email"
+              required
+              placeholder="Your Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              className="text-black-100 font-montserrat placeholder:text-black-50 placehoder:font-normal h-full w-full pl-1.5 text-[8px] font-medium focus:outline-white md:text-xl"
+            />
+          </div>
+          {subscriptionFeedback.message ? (
+            <p
+              className={cn(
+                `font-poppins text-sm font-semibold md:text-lg`,
+                subscriptionFeedback.success
+                  ? "text-green-700"
+                  : "text-red-700",
+              )}
+            >
+              {subscriptionFeedback.message}
+            </p>
+          ) : null}
         </div>
+
         <button
           className="bg-gold-100 border-gold-100 font-poppins hover:bg-gold-50 hover:text-black-100 raise h-6 w-18 cursor-pointer rounded-full border text-[10px] font-semibold text-white capitalize backdrop-blur-[5px] duration-300 md:h-[65px] md:w-[152px] md:text-sm md:font-bold"
           style={{ opacity: 0, transform: "translateY(50px)" }}
