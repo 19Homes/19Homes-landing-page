@@ -35,9 +35,11 @@ export default function Newsletter() {
     message: "",
   });
   const [email, setEmail] = useState("");
+  const [subscribeBtnClicked, setSubscribeBtnClicked] = useState(false);
   const handleFormSubmit = async () => {
     const response = await addSubscriber(email);
     setSubscriptionFeedback(response);
+    setSubscribeBtnClicked(false);
   };
   return (
     <section
@@ -63,6 +65,7 @@ export default function Newsletter() {
         className="flex h-15 flex-col items-center justify-between md:h-[203px]"
         onSubmit={(event) => {
           event.preventDefault();
+          setSubscribeBtnClicked(true);
           handleFormSubmit();
         }}
       >
@@ -103,10 +106,11 @@ export default function Newsletter() {
         </div>
 
         <button
-          className="bg-gold-100 border-gold-100 font-poppins hover:bg-gold-50 hover:text-black-100 raise h-6 w-18 cursor-pointer rounded-full border text-[10px] font-semibold text-white capitalize backdrop-blur-[5px] duration-300 md:h-[65px] md:w-[152px] md:text-sm md:font-bold"
+          className="bg-gold-100 border-gold-100 font-poppins hover:bg-gold-50 hover:text-black-100 raise h-6 w-18 cursor-pointer rounded-full border text-[10px] font-semibold text-white capitalize backdrop-blur-[5px] duration-300 disabled:bg-gold-25 disabled:cursor-not-allowed md:h-[65px] md:w-[152px] md:text-sm md:font-bold"
+          disabled={subscribeBtnClicked}
           style={{ opacity: 0, transform: "translateY(50px)" }}
         >
-          subscribe
+          {subscribeBtnClicked ? "Please wait..." : "Subscribe"}
         </button>
       </form>
     </section>
