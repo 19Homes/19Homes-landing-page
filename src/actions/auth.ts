@@ -134,3 +134,41 @@ export async function logout() {
   const cookiestore = await cookies();
   cookiestore.delete("session");
 }
+
+export async function addSubscriber(
+  email: string,
+): Promise<{ success: boolean; message: string }> {
+  try {
+    const supabase = createSupabaseClient();
+    if (!supabase)
+      return {
+        success: false,
+        message: "Could not connect with database. Try again",
+      };
+    const { data, error } = await supabase
+      .from("19homes subscribers")
+      .insert([{ email }])
+      .select();
+    if (error) {
+      console.log(error);
+      return {
+        success: false,
+        message:
+          error.message.search("duplicate") >= 0
+            ? "You are already on our subscription list!"
+            : "Sorry, we could nont add your subscription.",
+      };
+    }
+    console.log(data);
+    return {
+      success: true,
+      message: "You have been successfully registered as a subsciber.",
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Sorry, something went wrong. Please, try again.",
+    };
+  }
+}
